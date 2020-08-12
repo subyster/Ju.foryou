@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 352px;
-  height: 420px;
-  margin-bottom: 96px;
+  width: 35.2rem;
+  height: 42rem;
   background: var(--white);
   box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 24px;
+  border-radius: 2.4rem;
   position: relative;
 
   display: flex;
@@ -15,8 +14,8 @@ export const Container = styled.div`
   justify-content: space-between;
 
   img {
-    max-width: 304px;
-    max-height: 420px;
+    max-width: 30.4rem;
+    max-height: 42rem;
     position: absolute;
     overflow: hidden;
     text-align: center;
@@ -24,12 +23,12 @@ export const Container = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 352px;
-  height: 185px;
-  padding: 34px 8px 34px 34px;
+  width: 35.2rem;
+  height: 18.5rem;
+  padding: 3.4rem 8rem 3.4rem 3.4rem;
   background: var(--white);
   opacity: 0.9;
-  border-radius: 0px 0px 24px 24px;
+  border-radius: 0px 0px 2.4rem 2.4rem;
   position: absolute;
   bottom: 0;
 
@@ -38,13 +37,13 @@ export const Info = styled.div`
   justify-content: space-around;
 
   span {
-    font-size: 28px;
+    font-size: 2.8rem;
     color: var(--dark1);
   }
 
   strong {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 2.8rem;
     color: var(--dark-purple-ju);
   }
 `;
@@ -56,5 +55,5 @@ export const Status = styled.div`
 `;
 
 export const Buttons = styled.div`
-  margin-right: 26px;
+  margin-right: 2.6rem;
 `;

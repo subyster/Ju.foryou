@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiTwitter, FiFacebook, FiInstagram, FiMail } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiMail } from 'react-icons/fi';
 
 import { Container, Menu, Social, HeaderContent } from './styles';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  isHome?: boolean;
+  isSignIn?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
   return (
     <Container>
       <HeaderContent>
@@ -13,26 +18,23 @@ const Header: React.FC = () => {
         </Link>
 
         <Menu>
-          <Link to="/">Home</Link>
-          <Link to="/">Contato</Link>
-          <Link to="/">Login</Link>
-        </Menu>
+          {!isHome && <Link to="/">Home</Link>}
+          {!isSignIn && <Link to="/signin">Login</Link>}
 
-        <Social>
-          <a href="/">
-            <FiTwitter />
-          </a>
-          <a href="/">
-            <FiFacebook />
-          </a>
-          <a href="/">
-            <FiInstagram />
-          </a>
-          <a href="/">
-            <FiMail />
-          </a>
-        </Social>
+          <Social>
+            <a href="/">
+              <FiFacebook />
+            </a>
+            <a href="/">
+              <FiInstagram />
+            </a>
+            <a href="/">
+              <FiMail />
+            </a>
+          </Social>
+        </Menu>
       </HeaderContent>
+      {children}
     </Container>
   );
 };

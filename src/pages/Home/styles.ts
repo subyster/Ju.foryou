@@ -3,15 +3,20 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const FirstBlock = styled.div`
-  margin-top: 80px;
+  margin-top: 8rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  height: 600px;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+  }
 `;
 
 export const AboutUs = styled.div`
-  max-width: 720px;
-  min-width: 400px;
+  max-width: 72rem;
+  min-width: 40rem;
 
   display: flex;
   flex-direction: column;
@@ -19,25 +24,26 @@ export const AboutUs = styled.div`
   justify-content: space-evenly;
 
   div {
-    max-width: 360px;
-    max-height: 250px;
+    margin-top: 5.6rem;
+    max-width: 36rem;
+    max-height: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h2 {
       font-family: Pompiere;
-      font-size: 56px;
+      font-size: 5.6rem;
       color: var(--dark1);
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     p {
-      margin-top: 16px;
+      margin-top: 1.6rem;
       font-style: italic;
       font-weight: 300;
-      font-size: 16px;
-      line-height: 19px;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
       display: flex;
       align-items: center;
       text-align: center;
@@ -48,8 +54,9 @@ export const AboutUs = styled.div`
 `;
 
 export const ToSignUp = styled.div`
-  max-width: 720px;
-  min-width: 400px;
+  margin-top: 5.6rem;
+  max-width: 72rem;
+  min-width: 40rem;
 
   display: flex;
   flex-direction: column;
@@ -57,14 +64,14 @@ export const ToSignUp = styled.div`
   justify-content: center;
 
   div {
-    max-width: 420px;
-    margin-bottom: 72px;
+    max-width: 42rem;
+    margin-bottom: 7.2rem;
   }
 
   h1 {
     font-family: Pompiere;
-    font-size: 88px;
-    line-height: 106px;
+    font-size: 8.8rem;
+    line-height: 10.6rem;
     display: flex;
     align-items: center;
     text-align: center;
@@ -80,14 +87,14 @@ export const ToSignUp = styled.div`
 
     background: var(--purple-ju);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
-    width: 300px;
-    height: 72px;
+    border-radius: 1.6rem;
+    width: 30rem;
+    height: 7.2rem;
 
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 2.2rem;
     text-decoration: none;
     color: var(--background);
 
@@ -100,21 +107,22 @@ export const ToSignUp = styled.div`
 `;
 
 export const PorqueComprar = styled.div`
-  margin-top: 160px;
+  margin-top: 16rem;
   width: 100%;
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
 
   h1 {
     font-family: Pompiere;
-    font-size: 64px;
+    font-size: 6.4rem;
     color: var(--dark1);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 2.4rem;
     color: var(--dark1);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
@@ -123,7 +131,23 @@ export const PorqueComprar = styled.div`
 export const ReasonsList = styled.div`
   margin-top: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+
+  div + div {
+    margin-top: 2.8rem;
+  }
+
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 2.8rem;
+    grid-column-gap: 4rem;
+
+    div + div {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const HowToAnnounce = styled.div`

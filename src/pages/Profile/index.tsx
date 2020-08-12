@@ -165,11 +165,11 @@ const Profile: React.FC = () => {
               </FormLine>
 
               <FormLine>
-                <TextInput title="Senha" />
+                <TextInput type="password" title="Senha" />
               </FormLine>
 
               <FormLine>
-                <TextInput title="Confirmar Senha" />
+                <TextInput type="password" title="Confirmar Senha" />
               </FormLine>
 
               <FormLine>

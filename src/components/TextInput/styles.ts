@@ -3,24 +3,24 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 475px;
+  width: 100%;
 `;
 
 export const Title = styled.h1`
-  margin: 0 0 8px 8px;
+  margin: 0 0 0.8rem 0.8rem;
 
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--dark-purple-ju);
 `;
 
 export const InputBox = styled.div`
-  height: 64px;
+  height: 6.4rem;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 2.4rem;
 
   background: var(--white);
   box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   display: flex;
   align-items: center;
 
@@ -28,7 +28,12 @@ export const InputBox = styled.div`
     background: transparent;
     flex: 1;
     border: 0;
-    font-size: 18px;
+    font-size: 1.8rem;
     color: var(--dark1);
+  }
+
+  svg {
+    margin-right: 2.4rem;
+    color: var(--dark-purple-ju);
   }
 `;

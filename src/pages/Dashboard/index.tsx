@@ -20,7 +20,6 @@ import {
   ProfileInfo,
   NewItemButton,
   Filters,
-  FiltersTitle,
   ItensContainer,
   ItensScroll,
 } from './styles';
@@ -34,6 +33,8 @@ import ItemCard from '../../components/ItemCard';
 import ModalAddItem from '../../components/ModalAddItem';
 
 const Dashboard: React.FC = () => {
+  const [areFiltersVisible, setAreFiltersVisible] = useState(false);
+
   const [modalOpen, setModalOpen] = useState(false);
   const [state, setState] = useState({
     available: false,
@@ -50,6 +51,10 @@ const Dashboard: React.FC = () => {
   };
 
   const { available, pendent, sold, clothing, accessories, books } = state;
+
+  function handleToggleFilters(): void {
+    setAreFiltersVisible(!areFiltersVisible);
+  }
 
   function toggleModal(): void {
     setModalOpen(!modalOpen);
@@ -76,94 +81,96 @@ const Dashboard: React.FC = () => {
             Anunciar novo item
           </NewItemButton>
           <Filters>
-            <FiltersTitle>
+            <button onClick={handleToggleFilters} type="button">
               <h1>Filtros</h1>
               <FiFilter size={28} color="var(--dark-purple-ju)" />
-            </FiltersTitle>
-            <FormControl component="fieldset">
-              <FormLabel component="legend" className="title">
-                Status
-              </FormLabel>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={available}
-                      onChange={handleChange}
-                      name="available"
-                      color="primary"
-                    />
-                  }
-                  label="À venda"
-                  className="label"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={pendent}
-                      onChange={handleChange}
-                      name="pendent"
-                      color="primary"
-                    />
-                  }
-                  label="Pendentes"
-                  className="label"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={sold}
-                      onChange={handleChange}
-                      name="sold"
-                      color="primary"
-                    />
-                  }
-                  label="Vendidos"
-                  className="label"
-                />
-              </FormGroup>
-              <FormLabel component="legend" className="title">
-                Categoria
-              </FormLabel>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={clothing}
-                      onChange={handleChange}
-                      name="clothing"
-                      color="primary"
-                    />
-                  }
-                  label="Roupas"
-                  className="label"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={accessories}
-                      onChange={handleChange}
-                      name="accessories"
-                      color="primary"
-                    />
-                  }
-                  label="Acessórios"
-                  className="label"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={books}
-                      onChange={handleChange}
-                      name="books"
-                      color="primary"
-                    />
-                  }
-                  label="Livros"
-                  className="label"
-                />
-              </FormGroup>
-            </FormControl>
+            </button>
+            {areFiltersVisible && (
+              <FormControl component="fieldset">
+                <FormLabel component="legend" className="title">
+                  Status
+                </FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={available}
+                        onChange={handleChange}
+                        name="available"
+                        color="primary"
+                      />
+                    }
+                    label="À venda"
+                    className="label"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={pendent}
+                        onChange={handleChange}
+                        name="pendent"
+                        color="primary"
+                      />
+                    }
+                    label="Pendentes"
+                    className="label"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={sold}
+                        onChange={handleChange}
+                        name="sold"
+                        color="primary"
+                      />
+                    }
+                    label="Vendidos"
+                    className="label"
+                  />
+                </FormGroup>
+                <FormLabel component="legend" className="title">
+                  Categoria
+                </FormLabel>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={clothing}
+                        onChange={handleChange}
+                        name="clothing"
+                        color="primary"
+                      />
+                    }
+                    label="Roupas"
+                    className="label"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={accessories}
+                        onChange={handleChange}
+                        name="accessories"
+                        color="primary"
+                      />
+                    }
+                    label="Acessórios"
+                    className="label"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={books}
+                        onChange={handleChange}
+                        name="books"
+                        color="primary"
+                      />
+                    }
+                    label="Livros"
+                    className="label"
+                  />
+                </FormGroup>
+              </FormControl>
+            )}
           </Filters>
         </SideContainer>
         <ItensContainer>

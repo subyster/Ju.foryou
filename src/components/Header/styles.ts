@@ -8,15 +8,23 @@ export const Container = styled.header`
   z-index: 2;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
+  padding: 0 2rem;
+
+  @media (min-width: 700px) {
+    padding: 0 8rem;
+  }
+
+  @media (min-width: 1100px) {
+    padding: 0 12rem;
+  }
 `;
 
 export const HeaderContent = styled.div`
-  height: 80px;
+  height: 8rem;
 
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   a {
     text-decoration: none;
@@ -24,7 +32,7 @@ export const HeaderContent = styled.div`
 
   h1 {
     font-family: League Script;
-    font-size: 36px;
+    font-size: 3.6rem;
     color: var(--dark-purple-ju);
   }
 `;
@@ -32,12 +40,11 @@ export const HeaderContent = styled.div`
 export const Menu = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 448px;
 
-  a {
+  > a {
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 1.6rem;
     text-decoration: none;
     font-family: Pompiere;
     color: var(--dark-purple-ju);
@@ -49,29 +56,31 @@ export const Menu = styled.div`
       background-color: var(--background);
     }
   }
-
-  a + a {
-    margin-left: 23px;
-  }
 `;
 
 export const Social = styled.div`
   display: flex;
   align-items: center;
 
-  margin-left: auto;
-
   a + a {
-    margin-left: 21px;
+    margin-left: 2.1rem;
   }
 
   svg {
     color: var(--dark-purple-ju);
-    height: 32px;
-    width: 32px;
+    height: 3.2rem;
+    width: 3.2rem;
 
     &:hover {
       opacity: 0.8;
     }
+  }
+
+  @media (min-width: 700px) {
+    margin-left: 2.4rem;
+  }
+
+  @media (min-width: 1100px) {
+    margin-left: 8rem;
   }
 `;

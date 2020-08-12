@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 6px;
-  width: 256px;
-  height: 386px;
+  margin: 0 0.6rem;
+  width: 25.6rem;
+  height: 40rem;
   background: var(--pink-ju);
-  border-radius: 32px;
+  border-radius: 3.2rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
 
   display: flex;
@@ -14,24 +14,24 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  max-width: 192px;
+  max-width: 19.2rem;
 
-  margin: 24px 0;
+  margin: 2.4rem 0;
   font-style: italic;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.8rem;
   text-align: center;
 
   color: var(--dark1);
 `;
 
 export const Content = styled.div`
-  width: 230px;
-  height: 262px;
+  width: 23rem;
+  height: 26.2rem;
 
   font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
   display: flex;
   align-items: center;
   text-align: center;

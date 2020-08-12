@@ -3,64 +3,77 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  margin-top: 80px;
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const TopContent = styled.div`
-  margin-top: 36px;
-  width: 1050px;
+  margin-top: 3.6rem;
+  max-width: 105rem;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    align-items: unset;
+  }
 `;
 
 export const TopText = styled.div`
-  width: 312px;
+  width: 31.2rem;
 
   display: flex;
   flex-direction: column;
 
   h1 {
     font-family: Pompiere;
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 4.8rem;
+    line-height: 5.8rem;
     color: var(--dark1);
   }
 
   span {
-    font-size: 20px;
-    line-height: 23px;
+    font-size: 2rem;
+    line-height: 2.3rem;
     color: var(--dark-purple-ju);
   }
 `;
 
 export const UpdatePicture = styled.div`
   display: flex;
-  margin-left: 81px;
   position: relative;
+  margin-top: 3.6rem;
 
   img {
-    height: 240px;
-    width: 240px;
+    height: 24rem;
+    width: 24rem;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  @media (min-width: 1100px) {
+    margin-left: 81px;
+    margin-top: 0;
   }
 `;
 
 export const UpdatePictureButton = styled.button`
   position: absolute;
   background-color: var(--dark-purple-ju);
-  width: 56px;
-  height: 56px;
+  width: 5.6rem;
+  height: 5.6rem;
   border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  bottom: -10px;
-  right: 22px;
+  bottom: -1rem;
+  right: 2.2rem;
   transition: background-color 0.2s;
 
   &:hover {
@@ -69,42 +82,58 @@ export const UpdatePictureButton = styled.button`
 `;
 
 export const FormContent = styled.div`
-  margin-top: 72px;
+  margin-top: 7.2rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+  }
 `;
 
 export const FormColumn = styled.div`
-  margin: 0 50px;
+  width: 47.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1100px) {
+    margin: 0 5rem;
+  }
 `;
 
 export const FormLine = styled.div`
-  margin-bottom: 32px;
-  width: 475px;
+  margin-bottom: 3.2rem;
+  max-width: 47.5rem;
+  width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  div {
+    width: 100%;
+    & + div {
+      margin-left: 2.5rem;
+    }
+  }
+
   #confirm {
     width: 100%;
-    height: 64px;
-    margin-top: 20px;
+    height: 6.4rem;
     background-color: var(--purple-ju);
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
+    border-radius: 0.8rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
     color: var(--background);
     text-decoration: none;
     transition: background-color 0.2s;
@@ -118,22 +147,22 @@ export const FormLine = styled.div`
 export const SmallSelect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75px;
+  width: 7.5rem;
 
   h1 {
-    margin: 0 0 8px 8px;
-    font-size: 14px;
+    margin: 0 0 0.8rem 0.8rem;
+    font-size: 1.4rem;
     color: var(--dark-purple-ju);
   }
 
   select {
-    height: 64px;
+    height: 6.4rem;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 2.4rem;
 
     background: var(--white);
     box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 8px;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,22 +177,22 @@ export const SmallSelect = styled.div`
 export const CitySelect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 175px;
+  width: 17.5rem;
 
   h1 {
-    margin: 0 0 8px 8px;
-    font-size: 14px;
+    margin: 0 0 0.8rem 0.8rem;
+    font-size: 1.4rem;
     color: var(--dark-purple-ju);
   }
 
   select {
-    height: 64px;
+    height: 6.4rem;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 2.4rem;
 
     background: var(--white);
     box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 8px;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     -webkit-appearance: none;

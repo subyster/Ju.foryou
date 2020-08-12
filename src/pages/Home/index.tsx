@@ -47,7 +47,7 @@ import {
 const Home: React.FC = () => {
   return (
     <Container>
-      <Header />
+      <Header isHome />
 
       <FirstBlock>
         <AboutUs>

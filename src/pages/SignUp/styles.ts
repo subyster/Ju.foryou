@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const FormTitle = styled.div`
-  margin-top: 144px;
+  margin: 14.4rem 3.6rem 0 3.6rem;
 
   font-family: Pompiere;
-  font-size: 42px;
+  font-size: 4.2rem;
+  line-height: 5.6rem;
   color: var(--purple-ju);
 
   display: flex;
@@ -16,41 +17,59 @@ export const FormTitle = styled.div`
 `;
 
 export const FormContent = styled.div`
-  margin-top: 72px;
+  margin-top: 7.2rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+  }
 `;
 
 export const FormColumn = styled.div`
-  margin: 0 50px;
+  max-width: 47.5rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1100px) {
+    margin: 0 5rem;
+  }
 `;
 
 export const FormLine = styled.div`
-  margin-bottom: 32px;
-  width: 475px;
+  margin-bottom: 3.2rem;
+  max-width: 47.5rem;
+  width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  div {
+    width: 100%;
+    & + div {
+      margin-left: 2.5rem;
+    }
+  }
+
   #confirm {
     width: 100%;
-    height: 64px;
+    height: 6.4rem;
     background-color: var(--purple-ju);
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
+    border-radius: 0.8rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
     color: var(--background);
     text-decoration: none;
     transition: background-color 0.2s;
@@ -64,22 +83,22 @@ export const FormLine = styled.div`
 export const SmallSelect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75px;
+  width: 7.5rem;
 
   h1 {
-    margin: 0 0 8px 8px;
-    font-size: 14px;
+    margin: 0 0 0.8rem 0.8rem;
+    font-size: 1.4rem;
     color: var(--dark-purple-ju);
   }
 
   select {
-    height: 64px;
+    height: 6.4rem;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 2.4rem;
 
     background: var(--white);
     box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 8px;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,22 +113,22 @@ export const SmallSelect = styled.div`
 export const CitySelect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 175px;
+  width: 17.5rem;
 
   h1 {
-    margin: 0 0 8px 8px;
-    font-size: 14px;
+    margin: 0 0 0.8rem 0.8rem;
+    font-size: 1.4rem;
     color: var(--dark-purple-ju);
   }
 
   select {
-    height: 64px;
+    height: 6.4rem;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 2.4rem;
 
     background: var(--white);
     box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 8px;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     -webkit-appearance: none;
@@ -125,20 +144,20 @@ export const ConfirmForm = styled.div`
 `;
 
 export const AcceptTerms = styled.div`
-  margin: 0 0 8px 8px;
+  margin: 0 0 0.8rem 0.8rem;
 
   display: flex;
   align-items: center;
 
   input {
-    height: 16px;
-    width: 16px;
+    height: 1.6rem;
+    width: 1.6rem;
     color: var(--dark-purple-ju);
   }
 `;
 
 export const AcceptText = styled.h1`
-  margin-left: 8px;
-  font-size: 14px;
+  margin-left: 0.8rem;
+  font-size: 1.4rem;
   color: var(--dark-purple-ju);
 `;
