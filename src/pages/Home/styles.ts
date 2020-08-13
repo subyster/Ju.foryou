@@ -129,7 +129,7 @@ export const PorqueComprar = styled.div`
 `;
 
 export const ReasonsList = styled.div`
-  margin-top: 40px;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -148,21 +148,35 @@ export const ReasonsList = styled.div`
       margin-top: 0;
     }
   }
+
+  @media (min-width: 1100px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1350px) {
+    display: flex;
+    flex-direction: row;
+    grid-column-gap: 0;
+
+    div + div {
+      margin-left: 1.2rem;
+    }
+  }
 `;
 
 export const HowToAnnounce = styled.div`
-  margin-top: 75px;
+  margin-top: 7.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const HowToAnnounceTitle = styled.div`
-  max-width: 400px;
-  max-height: 160px;
+  max-width: 40rem;
+  max-height: 16rem;
 
   font-family: Pompiere;
-  font-size: 92px;
+  font-size: 9.2rem;
   line-height: 100.3%;
   text-align: center;
 
@@ -171,38 +185,42 @@ export const HowToAnnounceTitle = styled.div`
 `;
 
 export const HowToAnnounceBox = styled.div`
-  width: 1010px;
-  height: 460px;
   background-color: var(--pink-ju);
-  border-radius: 32px;
-  padding: 16px;
-  margin-top: 60px;
+  border-radius: 3.2rem;
+  padding: 1.6rem;
+  margin: 6rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: 1100px) {
+    width: 101rem;
+    height: 46rem;
+  }
 `;
 
 export const HowToAnnounceContent = styled.div`
-  height: 100%;
-  max-width: 790px;
+  max-width: 79rem;
+  margin: 3.8rem 1.6rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   h2 {
     font-weight: bold;
-    font-size: 32px;
+    font-size: 3.2rem;
 
     color: var(--dark1);
   }
 
   p {
-    font-size: 22px;
-    line-height: 26px;
+    margin-top: 3.6rem;
+    font-size: 2.2rem;
+    line-height: 2.6rem;
     text-align: center;
 
     color: var(--dark-purple-ju);
@@ -210,8 +228,7 @@ export const HowToAnnounceContent = styled.div`
 `;
 
 export const HowMuch = styled.div`
-  margin-top: 132px;
-  height: 800px;
+  margin-top: 13.2rem;
 
   display: flex;
   align-self: center;
@@ -221,62 +238,75 @@ export const HowMuch = styled.div`
 `;
 
 export const HowMuchTitle = styled.div`
+  margin: 0 2.4rem;
   text-align: center;
   color: var(--dark1);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   h1 {
     font-family: Pompiere;
-    font-size: 64px;
-    line-height: 77px;
+    font-size: 6.4rem;
+    line-height: 7.7rem;
   }
 
   h2 {
-    font-size: 24px;
+    margin-top: 1.6rem;
+    font-size: 2.4rem;
   }
 `;
 
 export const HowMuchLine = styled.div`
+  margin-top: 3.6rem;
+
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 700px) {
+    margin: 3.6rem 4.8rem;
+  }
+
+  @media (min-width: 1100px) {
+    margin: 3.6rem 11.3rem;
+    flex-direction: row;
+  }
 `;
 
 export const HowMuchBox1 = styled.div`
-  width: 372px;
-  height: 318px;
-  padding: 22px 18px;
+  height: 100%;
+  margin: 0 2.4rem;
+  padding: 2.2rem 1.8rem;
   background-color: var(--pink-ju);
-  border-radius: 32px;
+  border-radius: 3.2rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
 
   p {
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
     color: var(--dark-purple-ju);
   }
 
   p + p {
+    margin-top: 2.4rem;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
     color: var(--dark1);
   }
 `;
 
 export const HowMuchBox2 = styled.div`
-  max-width: 776px;
-  height: 318px;
-  margin-left: 68px;
+  margin: 2.4rem;
   background-color: var(--pink-ju);
-  border-radius: 32px;
-  padding: 28px 42px;
+  border-radius: 3.2rem;
+  padding: 2.8rem 4.2rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
 
   display: flex;
@@ -286,15 +316,16 @@ export const HowMuchBox2 = styled.div`
   text-align: center;
 
   h1 {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
     font-weight: bold;
     color: var(--dark1);
   }
 
   p {
-    font-size: 18px;
-    line-height: 22px;
+    margin-top: 2.4rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
     color: var(--dark-purple-ju);
   }
 
@@ -302,47 +333,69 @@ export const HowMuchBox2 = styled.div`
     font-weight: bold;
     color: var(--dark1);
   }
+
+  @media (min-width: 1100px) {
+    margin-top: 0;
+    margin-left: 6.8rem;
+  }
 `;
 
 export const HowMuchBox3 = styled.div`
-  height: 220px;
-  width: 378px;
-  margin-right: 69px;
+  height: 22rem;
+  width: 37.8rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-around;
 
   h1 {
     font-family: Pompiere;
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 4.8rem;
+    line-height: 4.8rem;
     color: var(--dark1);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   p {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
     color: var(--dark-purple-ju);
   }
 `;
 
 export const HowMuchValues = styled.div`
-  width: 776px;
+  margin-top: 3.6rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  div + div {
+    margin-top: 2.4rem;
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+
+    div + div {
+      margin-left: 2.4rem;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    margin-top: 0;
+    margin-left: 7rem;
+  }
 `;
 
 export const HowMuchValuesBox = styled.div`
-  width: 240px;
-  height: 240px;
+  width: 24rem;
+  height: 24rem;
   background-color: var(--pink-ju);
-  border-radius: 16px;
+  border-radius: 1.6rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
-  padding: 24px 0;
+  padding: 2.4rem 0;
 
   display: flex;
   flex-direction: column;
@@ -356,19 +409,19 @@ export const HowMuchSold = styled.div`
   align-items: center;
 
   p {
-    margin-top: 8px;
-    font-size: 16px;
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
     color: var(--dark1);
   }
 `;
 
 export const HowMuchGet = styled.p`
-  font-size: 88px;
+  font-size: 8.8rem;
   color: var(--dark-purple-ju);
 `;
 
 export const Obs = styled.div`
-  margin-top: 96px;
+  margin-top: 9.6rem;
 
   display: flex;
   flex-direction: column;
@@ -377,45 +430,38 @@ export const Obs = styled.div`
 
 export const ObsTitle = styled.div`
   font-family: Pompiere;
-  font-size: 64px;
+  font-size: 6.4rem;
   color: var(--dark1);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const ObsInfo = styled.div`
-  margin-top: 96px;
-  display: flex;
-`;
-
-export const ObsLeft = styled.div`
-  width: 560px;
-  height: 440px;
-  background: var(--pink-ju);
-  border-radius: 32px;
-  box-shadow: 1px 2px 4px var(--purple-ju);
-  margin-right: 96px;
-  padding: 42px 70px;
-
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
 
-  p {
-    font-size: 20px;
-    line-height: 23px;
-    color: var(--dark-purple-ju);
+  div + div {
+    margin-top: 3.6rem;
+  }
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+
+    div + div {
+      margin-top: 0;
+    }
   }
 `;
 
-export const ObsRight = styled.div`
-  width: 560px;
-  height: 440px;
+export const ObsBox = styled.div`
+  max-width: 56rem;
+  max-height: 44rem;
+  margin-right: 4.8rem;
+  margin-left: 4.8rem;
   background: var(--pink-ju);
-  border-radius: 32px;
+  border-radius: 3.2rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
-  padding: 42px 70px;
+  padding: 4.2rem 7rem;
 
   display: flex;
   flex-direction: column;
@@ -424,8 +470,9 @@ export const ObsRight = styled.div`
   justify-content: space-around;
 
   p {
-    font-size: 20px;
-    line-height: 23px;
+    margin-bottom: 2.4rem;
+    font-size: 2rem;
+    line-height: 2.3rem;
     color: var(--dark-purple-ju);
   }
 
@@ -438,7 +485,7 @@ export const ObsRight = styled.div`
 `;
 
 export const Recap = styled.div`
-  margin-top: 96px;
+  margin-top: 9.6rem;
 
   display: flex;
   flex-direction: column;
@@ -447,24 +494,35 @@ export const Recap = styled.div`
 
 export const RecapTitle = styled.h1`
   font-family: Pompiere;
-  font-size: 80px;
+  font-size: 8rem;
   color: var(--dark1);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const RecapInfo = styled.div`
+  margin-top: 8rem;
   display: flex;
-  margin-top: 32px;
+  flex-direction: column;
+
+  div + div {
+    margin-top: 3.6rem;
+  }
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+
+    div + div {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const RecapBox = styled.div`
-  width: 560px;
-  height: 490px;
   background: var(--pink-ju);
-  border-radius: 32px;
+  border-radius: 3.2rem;
   box-shadow: 1px 2px 4px var(--purple-ju);
-  margin: 0 48px;
-  padding: 48px 72px;
+  margin: 0 4.8rem;
+  padding: 3.6rem;
 
   display: flex;
   flex-direction: column;
@@ -473,17 +531,23 @@ export const RecapBox = styled.div`
   justify-content: space-around;
 
   p {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 23px;
+    margin-top: 1.6rem;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.3rem;
     text-align: center;
     color: var(--dark-purple-ju);
+  }
+
+  @media (min-width: 1100px) {
+    padding: 4.8rem 7.2rem;
+    max-width: 56rem;
+    max-height: 49rem;
   }
 `;
 
 export const JoinUs = styled.div`
-  margin-top: 82px;
-  height: 174px;
+  margin: 8.2rem 3.6rem;
 
   display: flex;
   flex-direction: column;
@@ -493,22 +557,24 @@ export const JoinUs = styled.div`
 
   h1 {
     font-family: Pompiere;
-    font-size: 72px;
-    line-height: 87px;
+    font-size: 7.2rem;
+    line-height: 8.7rem;
     color: var(--dark1);
   }
 
   h2 {
+    margin-top: 3.6rem;
     font-family: Pompiere;
-    font-size: 36px;
+    font-size: 3.6rem;
+    line-height: 8.7rem;
     color: var(--dark1);
   }
 
   a {
-    padding: 8px;
-    border-radius: 16px;
+    padding: 0.8rem;
+    border-radius: 1.6rem;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 3.6rem;
     text-decoration: none;
     color: var(--dark-purple-ju);
     transition: background-color 0.2s;

@@ -1,16 +1,23 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, {
+  useState,
+  useEffect,
+  ChangeEvent,
+  useCallback,
+  useRef,
+} from 'react';
 import axios from 'axios';
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
+import getValidationErrors from '../../utils/getValidationErrors';
 
-import { Link } from 'react-router-dom';
 import {
   Container,
   FormTitle,
   FormContent,
   FormColumn,
   AcceptText,
-  SmallSelect,
-  CitySelect,
   FormLine,
   ConfirmForm,
   AcceptTerms,
@@ -19,6 +26,7 @@ import {
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import TextInput from '../../components/TextInput';
+import Select from '../../components/Select';
 
 interface IBGEUFResponse {
   sigla: string;
@@ -29,6 +37,8 @@ interface IBGECityResponse {
 }
 
 const SignUp: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
   const [checked, setChecked] = useState(false);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
@@ -80,85 +90,120 @@ const SignUp: React.FC = () => {
     setChecked(event.target.checked);
   };
 
+  const handleSubmit = useCallback(async (data: object) => {
+    try {
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Nome obrigatório'),
+        surname: Yup.string().required('Sobrenome obrigatório'),
+        cpf: Yup.number().required('CPF obrigatório'),
+        phone: Yup.number().required('Telefone obrigatório'),
+        gender: Yup.string().required('Preencher campo'),
+        address: Yup.string().required('Endereço obrigatório'),
+        neighborhood: Yup.string().required('Campo obrigatório'),
+        uf: Yup.string().required('Campo obrigatório'),
+        city: Yup.string().required('Campo obrigatório'),
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('Digite um E-mail válido'),
+        password: Yup.string().min(6, 'Mínimo de 6 dígitos'),
+        confirm_password: Yup.string().oneOf(
+          [Yup.ref('password'), undefined],
+          'As senhas devem ser iguais',
+        ),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      const errors = getValidationErrors(err);
+
+      formRef.current?.setErrors(errors);
+    }
+  }, []);
+
   return (
     <Container>
       <Header />
 
-      <FormTitle>Preencha suas informações para fazer o cadastro</FormTitle>
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        <FormTitle>Preencha suas informações para fazer o cadastro</FormTitle>
 
-      <form onSubmit={() => {}}>
         <FormContent>
           <FormColumn>
             <FormLine>
-              <TextInput title="Nome" boxWidth={175} />
-              <TextInput title="Sobrenome" boxWidth={275} />
+              <TextInput name="name" title="Nome" boxWidth={175} />
+              <TextInput name="surname" title="Sobrenome" boxWidth={275} />
             </FormLine>
 
             <FormLine>
-              <TextInput title="CPF" boxWidth={175} />
-              <TextInput title="Telefone para Contato" boxWidth={175} />
-              <SmallSelect>
-                <h1>Gênero</h1>
-                <select name="gender" id="gender">
-                  <option value="0"> </option>
-                  <option value="M">M</option>
-                  <option value="F">F</option>
-                  <option value="N">Não declarar</option>
-                </select>
-              </SmallSelect>
+              <TextInput name="cpf" title="CPF" boxWidth={175} />
+              <TextInput
+                name="phone"
+                title="Telefone para Contato"
+                boxWidth={175}
+              />
+              <Select name="gender" title="Gênero" boxWidth={75}>
+                <option value="0"> </option>
+                <option value="M">M</option>
+                <option value="F">F</option>
+                <option value="N">Não declarar</option>
+              </Select>
             </FormLine>
 
             <FormLine>
-              <TextInput title="Endereço" />
+              <TextInput name="address" title="Endereço" />
             </FormLine>
 
             <FormLine>
-              <TextInput title="Bairro" boxWidth={175} />
-              <SmallSelect>
-                <h1>UF</h1>
-                <select
-                  name="uf"
-                  id="uf"
-                  value={selectedUf}
-                  onChange={handleSelectedUf}
-                >
-                  <option value="0"> </option>
-                  {ufs.map(uf => (
-                    <option key={uf} value={uf}>
-                      {uf}
-                    </option>
-                  ))}
-                </select>
-              </SmallSelect>
-              <CitySelect>
-                <h1>Cidade</h1>
-                <select
-                  name="city"
-                  id="city"
-                  value={selectedCity}
-                  onChange={handleSelectedCity}
-                >
-                  <option value="0">Selecione a UF</option>
-                  {cities.map(city => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-              </CitySelect>
+              <TextInput name="neighborhood" title="Bairro" boxWidth={175} />
+              <Select
+                name="uf"
+                title="UF"
+                value={selectedUf}
+                onChange={handleSelectedUf}
+                boxWidth={75}
+              >
+                <option value="0"> </option>
+                {ufs.map(uf => (
+                  <option key={uf} value={uf}>
+                    {uf}
+                  </option>
+                ))}
+              </Select>
+              <Select
+                title="Cidade"
+                name="city"
+                value={selectedCity}
+                onChange={handleSelectedCity}
+                boxWidth={175}
+              >
+                <option value="0">Selecione a UF</option>
+                {cities.map(city => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </Select>
             </FormLine>
           </FormColumn>
           <FormColumn>
             <FormLine>
-              <TextInput title="E-mail" />
+              <TextInput name="email" title="E-mail" />
             </FormLine>
 
             <FormLine>
-              <TextInput type="password" title="Senha" />
+              <TextInput name="password" type="password" title="Senha" />
             </FormLine>
 
             <FormLine>
-              <TextInput type="password" title="Confirmar Senha" />
+              <TextInput
+                name="confirm_password"
+                type="password"
+                title="Confirmar Senha"
+              />
             </FormLine>
 
             <FormLine>
@@ -171,14 +216,14 @@ const SignUp: React.FC = () => {
                   />
                   <AcceptText>Aceito os termos de contrato</AcceptText>
                 </AcceptTerms>
-                <Link to="/dashboard" id="confirm">
+                <button type="submit" id="confirm">
                   Confirmar Cadastro
-                </Link>
+                </button>
               </ConfirmForm>
             </FormLine>
           </FormColumn>
         </FormContent>
-      </form>
+      </Form>
 
       <Footer />
     </Container>

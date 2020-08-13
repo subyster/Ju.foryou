@@ -80,63 +80,6 @@ export const FormLine = styled.div`
   }
 `;
 
-export const SmallSelect = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 7.5rem;
-
-  h1 {
-    margin: 0 0 0.8rem 0.8rem;
-    font-size: 1.4rem;
-    color: var(--dark-purple-ju);
-  }
-
-  select {
-    height: 6.4rem;
-    width: 100%;
-    padding: 0 2.4rem;
-
-    background: var(--white);
-    box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--dark1);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-`;
-
-export const CitySelect = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 17.5rem;
-
-  h1 {
-    margin: 0 0 0.8rem 0.8rem;
-    font-size: 1.4rem;
-    color: var(--dark-purple-ju);
-  }
-
-  select {
-    height: 6.4rem;
-    width: 100%;
-    padding: 0 2.4rem;
-
-    background: var(--white);
-    box-shadow: 1px 2px 4px var(--purple-ju);
-    border-radius: 0.8rem;
-    display: flex;
-    align-items: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-`;
-
 export const ConfirmForm = styled.div`
   display: flex;
   flex-direction: column;

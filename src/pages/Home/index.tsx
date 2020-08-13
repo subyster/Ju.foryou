@@ -35,8 +35,7 @@ import {
   Obs,
   ObsTitle,
   ObsInfo,
-  ObsLeft,
-  ObsRight,
+  ObsBox,
   Recap,
   RecapTitle,
   RecapInfo,
@@ -90,6 +89,7 @@ const Home: React.FC = () => {
         <h2>5 vantagens de garimpar</h2>
         <ReasonsList>
           <ReasonBox
+            id="reason1"
             title="1. Garimpar é divertido!"
             description="Como somos um brechó online, você não pode revirar as
              araras, mas pode revirar nosso feed até encontrar aquela peça PERFEITA 
@@ -97,6 +97,7 @@ const Home: React.FC = () => {
              como se fosse brincar de caça ao tesouro!"
           />
           <ReasonBox
+            id="reason2"
             title="2. Peças exclusivas"
             description="Os nosso acervos contém de vintage a roupas de marca,
             além de coleções exclusivas que muito provavelmente não estão
@@ -104,11 +105,13 @@ const Home: React.FC = () => {
               algum conhecido possuir a mesma peça são ínfimas."
           />
           <ReasonBox
+            id="reason3"
             title="3. Vintage nunca sai de moda"
             description="E brechós são os lugares ideais para encontrar
             tesouros vintage."
           />
           <ReasonBox
+            id="reason4"
             title="4. Peças atuais e de qualidade com preços de banana"
             description="Roupas usadas são em média 40-60% mais baratas que
              peças novas, sem contar que a qualidade normalmente é superior. Ou
@@ -117,6 +120,7 @@ const Home: React.FC = () => {
                 investimento – fashion – seja muito mais alto."
           />
           <ReasonBox
+            id="reason5"
             title="5. Consumo mais responsável"
             description="Comprar em brechó evita desperdício e, consequentemente
             , reduz impactos ambientais. Ao reutilizar algo que já foi de alguém
@@ -130,7 +134,7 @@ const Home: React.FC = () => {
       <HowToAnnounce>
         <HowToAnnounceTitle>Como anunciar?</HowToAnnounceTitle>
         <HowToAnnounceBox>
-          <FiChevronLeft size={32} color="#500a0f" />
+          <FiChevronLeft size="3.2rem" color="#500a0f" />
           <HowToAnnounceContent>
             <h2>Por que anunciar?</h2>
             <p>
@@ -144,7 +148,7 @@ const Home: React.FC = () => {
             </p>
             <p>Abra espaço pra coisas novas na sua vida.</p>
           </HowToAnnounceContent>
-          <FiChevronRight size={32} color="#500a0f" />
+          <FiChevronRight size="3.2rem" color="#500a0f" />
         </HowToAnnounceBox>
       </HowToAnnounce>
 
@@ -236,16 +240,16 @@ const Home: React.FC = () => {
         <ObsTitle>Observações...</ObsTitle>
 
         <ObsInfo>
-          <ObsLeft>
+          <ObsBox>
             <p>Nós não efetuamos trocas.</p>
             <p>
               Não efetuamos trocas após vendidas, nem disponibilizamos a opção
               de trocar uma peça pessoal por alguma disponível no brechó.
             </p>
             <img src={noChangeImg} alt="No Change" />
-          </ObsLeft>
+          </ObsBox>
 
-          <ObsRight>
+          <ObsBox>
             <p>
               Disponibilizamos uma fita métrica e estamos disponíveis sempre pra
               sanar todas as dúvidas com relação às peças, desde o tamanho,
@@ -255,7 +259,7 @@ const Home: React.FC = () => {
               <img src={measureTapeImg} alt="measure tape" />
               <img src={questionImg} alt="question" />
             </div>
-          </ObsRight>
+          </ObsBox>
         </ObsInfo>
       </Obs>
 

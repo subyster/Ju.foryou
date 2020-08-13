@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import styled, { css } from 'styled-components';
+
+interface InputColorProps {
+  isFocused: boolean;
+  isFilled: boolean;
+  isErrored: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -13,20 +20,21 @@ export const Title = styled.h1`
   color: var(--dark-purple-ju);
 `;
 
-export const InputBox = styled.div`
-  height: 6.4rem;
-  width: 100%;
-  padding: 0 2.4rem;
-
+export const InputBox = styled.div<InputColorProps>`
   background: var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
   border-radius: 0.8rem;
+  padding: 1.6rem;
+  max-width: 47.5rem;
+  width: 100%;
+
+  border: 2px solid var(--white);
+  box-shadow: 1px 2px 4px var(--purple-ju);
   display: flex;
   align-items: center;
 
   input {
     background: transparent;
-    flex: 1;
+    width: 100%;
     border: 0;
     font-size: 1.8rem;
     color: var(--dark1);
@@ -34,6 +42,37 @@ export const InputBox = styled.div`
 
   svg {
     margin-right: 2.4rem;
-    color: var(--dark-purple-ju);
+    color: var(--purple-ju);
+  }
+
+  ${props =>
+    props.isErrored &&
+    css`
+      border-color: var(--red);
+    `}
+
+  ${props =>
+    props.isFocused &&
+    css`
+      border-color: var(--dark-purple-ju);
+      svg {
+        color: var(--dark-purple-ju);
+      }
+    `}
+
+  ${props =>
+    props.isFilled &&
+    css`
+      svg {
+        color: var(--dark-purple-ju);
+      }
+    `}
+`;
+
+export const Error = styled.div`
+  margin-left: 1.6rem;
+
+  svg {
+    margin-right: 0;
   }
 `;

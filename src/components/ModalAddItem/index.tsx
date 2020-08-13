@@ -29,10 +29,10 @@ const ModalAddItem: React.FC<IModalProps> = ({ isOpen, setIsOpen }) => {
         </Title>
         <Content>
           <Inputs>
-            <TextInput title="Nome do produto*" />
-            <TextInput title="Categoria*" />
-            <TextInput title="Tamanho" />
-            <TextInput title="Valor Sugerido (R$)" />
+            <TextInput name="name" title="Nome do produto*" />
+            <TextInput name="category" title="Categoria*" />
+            <TextInput name="size" title="Tamanho" />
+            <TextInput name="price" title="Valor Sugerido (R$)" />
           </Inputs>
           <Photos>
             <AddPhoto>
