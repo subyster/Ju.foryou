@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { Link } from 'react-router-dom';
-import { FiFilter, FiLogOut } from 'react-icons/fi';
+import { FiFilter } from 'react-icons/fi';
 import {
   Container,
   Content,
@@ -23,8 +23,6 @@ import {
   ItensScroll,
 } from './styles';
 
-import { useAuth } from '../../hooks/auth';
-
 import profilePic from '../../assets/arthur.PNG';
 import jeansImg from '../../assets/jeans.jpg';
 
@@ -33,8 +31,6 @@ import Footer from '../../components/Footer';
 import ItemCard from '../../components/ItemCard';
 
 const Dashboard: React.FC = () => {
-  const { signOut } = useAuth();
-
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
 
   const [state, setState] = useState({
@@ -59,24 +55,20 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header isPrivate />
 
       <Content>
         <SideContainer>
           <Profile>
             <ProfilePicture>
               <img src={profilePic} alt="Arthur" />
-              <Link to="/profile">Editar perfil</Link>
             </ProfilePicture>
             <ProfileInfo>
               <h1>Bem vindo,</h1>
               <h2>Arthur</h2>
             </ProfileInfo>
           </Profile>
-          <button onClick={signOut} type="button">
-            Sair
-            <FiLogOut />
-          </button>
+
           <Link to="/new-item">Anunciar novo item</Link>
           <Filters>
             <button onClick={handleToggleFilters} type="button">

@@ -81,7 +81,7 @@ const Profile: React.FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header isPrivate />
 
       <Content>
         <TopContent>

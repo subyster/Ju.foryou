@@ -5,7 +5,7 @@ export const Container = styled.header`
   left: 0%;
   right: 0%;
   top: 0px;
-  z-index: 2;
+  z-index: 5;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
   padding: 0 2rem;
@@ -25,6 +25,7 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -41,20 +42,64 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
 
-  > a {
+  > a,
+  > button {
+    background-color: transparent;
     display: flex;
     align-items: center;
     padding: 0 1.6rem;
     text-decoration: none;
     font-family: Pompiere;
     color: var(--dark-purple-ju);
-    font-size: 32px;
-    height: 80px;
+    font-size: 3.2rem;
+    height: 8rem;
     transition: background-color 0.4s;
 
     &:hover {
       background-color: var(--background);
     }
+  }
+`;
+
+export const ProfileMenu = styled.div`
+  position: absolute;
+  top: calc(100% + 1px);
+  left: -2rem;
+  background-color: var(--background);
+  box-shadow: 1px 2px 4px var(--dark-purple-ju);
+  width: 100vw;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  a,
+  button {
+    display: flex;
+    align-items: center;
+
+    padding: 1.6rem;
+    font: 500 2.8rem Pompiere;
+    color: var(--dark-purple-ju);
+    transition: background-color 0.4s;
+
+    svg {
+      margin-right: 2rem;
+    }
+
+    &:hover {
+      background-color: var(--pink-ju);
+    }
+  }
+
+  button {
+    color: var(--red);
+    background: transparent;
+  }
+
+  @media (min-width: 700px) {
+    left: unset;
+    width: unset;
   }
 `;
 

@@ -26,8 +26,8 @@ export const Title = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 23rem;
-  height: 26.2rem;
+  padding: 0 1.6rem 2.4rem 1.6rem;
+  height: 100%;
 
   font-weight: 500;
   font-size: 1.8rem;

@@ -24,20 +24,6 @@ export const SideContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  > button {
-    margin-top: 1.6rem;
-    background: transparent;
-    border: 0;
-    color: var(--red);
-
-    display: flex;
-    align-items: center;
-
-    svg {
-      margin-left: 1.2rem;
-    }
-  }
-
   @media (min-width: 1100px) {
     align-items: unset;
   }
@@ -86,16 +72,6 @@ export const ProfilePicture = styled.div`
     width: 12.8rem;
     border-radius: 50%;
     object-fit: cover;
-  }
-
-  a {
-    font-size: 1rem;
-    color: var(--dark-purple-ju);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 `;
 
@@ -203,7 +179,6 @@ export const ItensScroll = styled.div`
 
   @media (min-width: 1100px) {
     max-height: 80rem;
-    padding-bottom: 0.8rem;
     margin-bottom: -10rem;
 
     display: grid;
