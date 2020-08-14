@@ -1,10 +1,13 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import Route from './Route';
 
 import Home from '../pages/Home';
 import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
 import Dashboard from '../pages/Dashboard';
+import NewItem from '../pages/NewItem';
 import Profile from '../pages/Profile';
 
 const Routes: React.FC = () => (
@@ -13,8 +16,9 @@ const Routes: React.FC = () => (
     <Route path="/signup" component={SignUp} />
     <Route path="/signin" component={SignIn} />
 
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/dashboard" component={Dashboard} isPrivate />
+    <Route path="/new-item" component={NewItem} isPrivate />
+    <Route path="/profile" component={Profile} isPrivate />
   </Switch>
 );
 

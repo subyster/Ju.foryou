@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useState, useEffect, ChangeEvent } from 'react';
+import { Form } from '@unform/web';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
@@ -96,7 +97,7 @@ const Profile: React.FC = () => {
           </UpdatePicture>
         </TopContent>
 
-        <form onSubmit={() => {}}>
+        <Form onSubmit={() => {}}>
           <FormContent>
             <FormColumn>
               <FormLine>
@@ -120,7 +121,7 @@ const Profile: React.FC = () => {
               </FormLine>
 
               <FormLine>
-                <TextInput name="address" title="Endereço" />
+                <TextInput boxWidth={475} name="address" title="Endereço" />
               </FormLine>
 
               <FormLine>
@@ -157,15 +158,21 @@ const Profile: React.FC = () => {
             </FormColumn>
             <FormColumn>
               <FormLine>
-                <TextInput name="email" title="E-mail" />
-              </FormLine>
-
-              <FormLine>
-                <TextInput name="password" type="password" title="Senha" />
+                <TextInput boxWidth={475} name="email" title="E-mail" />
               </FormLine>
 
               <FormLine>
                 <TextInput
+                  boxWidth={475}
+                  name="password"
+                  type="password"
+                  title="Senha"
+                />
+              </FormLine>
+
+              <FormLine>
+                <TextInput
+                  boxWidth={475}
                   name="confirm_password"
                   type="password"
                   title="Confirmar Senha"
@@ -181,7 +188,7 @@ const Profile: React.FC = () => {
               </FormLine>
             </FormColumn>
           </FormContent>
-        </form>
+        </Form>
       </Content>
 
       <Footer />

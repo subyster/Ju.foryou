@@ -8,8 +8,11 @@ export default createGlobalStyle`
     --pink-ju: #FFC2DF;
     --purple-ju: #C6ADFF;
     --dark-purple-ju: #8B12C4;
+    --light-purple-ju: #f1ebff;
     --red: #F50049;
+    --light-red: #FFD6E2;
     --green: #127929;
+    --light-green: #DCFAE2;
 
     font-size: 60%;
   }

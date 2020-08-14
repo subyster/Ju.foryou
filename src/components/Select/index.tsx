@@ -6,8 +6,9 @@ import React, {
   useCallback,
 } from 'react';
 import { useField } from '@unform/core';
+import { FiAlertTriangle } from 'react-icons/fi';
 
-import { Container } from './styles';
+import { Container, Label, Error } from './styles';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   title: string;
@@ -44,8 +45,21 @@ const Select: React.FC<SelectProps> = ({
   }, [registerField, fieldName]);
 
   return (
-    <Container isFocused={isFocused} style={{ width: boxWidth }}>
-      <h1>{title}</h1>
+    <Container
+      isErrored={!!error}
+      isFocused={isFocused}
+      style={{ width: boxWidth }}
+    >
+      <Label>
+        <h1>{title}</h1>
+
+        {error && (
+          <Error>
+            <FiAlertTriangle color="var(--red)" />
+          </Error>
+        )}
+      </Label>
+
       <select
         onFocus={handleSelectFocus}
         onBlur={handleSelectBlur}

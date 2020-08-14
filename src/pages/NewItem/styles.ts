@@ -4,45 +4,69 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-
-  margin: 20px 43px;
-  height: 550px;
-  width: 876px;
 `;
 
 export const Title = styled.div`
+  margin-top: 12rem;
   display: flex;
   flex-direction: column;
-
-  width: 100%;
+  align-items: center;
+  color: var(--dark1);
 
   h1 {
     font-family: Pompiere;
-    font-size: 36px;
+    font-size: 3.6rem;
   }
   span {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 `;
 
 export const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
+  margin-top: 4rem;
 
-  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    align-items: unset;
+  }
+
+  @media (min-width: 1100px) {
+    align-items: center;
+  }
 `;
 
 export const Inputs = styled.div`
   div {
-    margin-bottom: 8px;
-    width: 300px;
+    margin-bottom: 0.8rem;
+    width: 30rem;
   }
 `;
 
 export const Photos = styled.div`
+  margin-top: 4rem;
+
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  div + div {
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 800px) {
+    margin-top: 0;
+    margin-left: 6.4rem;
+  }
+
+  @media (min-width: 1100px) {
+    margin-left: 9.2rem;
+
+    flex-direction: row;
+  }
 `;
 
 export const AddPhoto = styled.div`
@@ -50,17 +74,17 @@ export const AddPhoto = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 316px;
-  height: 378px;
+  width: 31.6rem;
+  height: 37.8rem;
   background: var(--white);
   box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 24px;
+  border-radius: 2.4rem;
 
   div {
     border: 2px dashed var(--dark-purple-ju);
-    height: 302.4px;
-    width: 252.8px;
-    border-radius: 24px;
+    height: 30.24rem;
+    width: 25.28rem;
+    border-radius: 2.4rem;
 
     display: flex;
     align-items: center;
@@ -68,10 +92,10 @@ export const AddPhoto = styled.div`
     text-align: center;
 
     span {
-      font-size: 16px;
-      line-height: 19px;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
       color: var(--dark1);
-      margin: 24px;
+      margin: 2.4rem;
     }
   }
 `;
@@ -81,27 +105,30 @@ export const MorePhotos = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 80px;
-  height: 96px;
+  width: 8rem;
+  height: 9.6rem;
   background: var(--white);
   box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 24px;
-  margin-left: 56px;
+  border-radius: 2.4rem;
 
   div {
     border: 2px dashed var(--dark-purple-ju);
-    border-radius: 24px;
-    width: 60px;
-    height: 72px;
+    border-radius: 2.4rem;
+    width: 6rem;
+    height: 7.2rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     strong {
-      font-size: 32px;
+      font-size: 3.2rem;
       color: var(--dark1);
     }
+  }
+
+  @media (min-width: 1100px) {
+    margin-left: 5.6rem;
   }
 `;
 
@@ -110,18 +137,24 @@ export const Submit = styled.button`
   align-items: center;
   justify-content: center;
 
-  width: 475px;
-  height: 64px;
+  margin-top: 4rem;
+  width: 32rem;
+  padding: 1.6rem;
   background-color: var(--purple-ju);
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  border-radius: 0.8rem;
 
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem;
   color: var(--background);
   transition: background-color 0.2s;
 
   &:hover {
     background-color: var(--dark-purple-ju);
+  }
+
+  @media (min-width: 800px) {
+    width: 47.5rem;
   }
 `;

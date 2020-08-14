@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { Link } from 'react-router-dom';
-import { FiFilter } from 'react-icons/fi';
+import { FiFilter, FiLogOut } from 'react-icons/fi';
 import {
   Container,
   Content,
@@ -18,11 +18,12 @@ import {
   Profile,
   ProfilePicture,
   ProfileInfo,
-  NewItemButton,
   Filters,
   ItensContainer,
   ItensScroll,
 } from './styles';
+
+import { useAuth } from '../../hooks/auth';
 
 import profilePic from '../../assets/arthur.PNG';
 import jeansImg from '../../assets/jeans.jpg';
@@ -30,12 +31,12 @@ import jeansImg from '../../assets/jeans.jpg';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ItemCard from '../../components/ItemCard';
-import ModalAddItem from '../../components/ModalAddItem';
 
 const Dashboard: React.FC = () => {
+  const { signOut } = useAuth();
+
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
 
-  const [modalOpen, setModalOpen] = useState(false);
   const [state, setState] = useState({
     available: false,
     pendent: false,
@@ -56,14 +57,9 @@ const Dashboard: React.FC = () => {
     setAreFiltersVisible(!areFiltersVisible);
   }
 
-  function toggleModal(): void {
-    setModalOpen(!modalOpen);
-  }
-
   return (
     <Container>
       <Header />
-      <ModalAddItem isOpen={modalOpen} setIsOpen={toggleModal} />
 
       <Content>
         <SideContainer>
@@ -77,9 +73,11 @@ const Dashboard: React.FC = () => {
               <h2>Arthur</h2>
             </ProfileInfo>
           </Profile>
-          <NewItemButton onClick={toggleModal}>
-            Anunciar novo item
-          </NewItemButton>
+          <button onClick={signOut} type="button">
+            Sair
+            <FiLogOut />
+          </button>
+          <Link to="/new-item">Anunciar novo item</Link>
           <Filters>
             <button onClick={handleToggleFilters} type="button">
               <h1>Filtros</h1>

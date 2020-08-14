@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import styled, { css } from 'styled-components';
 
+import Tooltip from '../Tooltip';
+
 interface InputColorProps {
   isFocused: boolean;
   isFilled: boolean;
@@ -10,14 +12,34 @@ interface InputColorProps {
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+`;
+
+export const Label = styled.header`
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.8rem 0.8rem;
 `;
 
 export const Title = styled.h1`
-  margin: 0 0 0.8rem 0.8rem;
-
   font-size: 1.4rem;
   color: var(--dark-purple-ju);
+`;
+
+export const Error = styled(Tooltip)`
+  height: 1.2rem;
+  margin-left: 1.2rem;
+
+  svg {
+    margin-right: 0;
+  }
+
+  span {
+    background: var(--red);
+
+    &::before {
+      border-color: var(--red) transparent;
+    }
+  }
 `;
 
 export const InputBox = styled.div<InputColorProps>`
@@ -67,12 +89,4 @@ export const InputBox = styled.div<InputColorProps>`
         color: var(--dark-purple-ju);
       }
     `}
-`;
-
-export const Error = styled.div`
-  margin-left: 1.6rem;
-
-  svg {
-    margin-right: 0;
-  }
 `;

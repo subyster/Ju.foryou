@@ -115,7 +115,6 @@ export const FormLine = styled.div`
   justify-content: space-between;
 
   div {
-    width: 100%;
     & + div {
       margin-left: 2.5rem;
     }

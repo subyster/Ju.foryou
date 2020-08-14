@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 4.8rem;
   background-color: var(--pink-ju);
-  width: 100vw;
+  width: calc(100vw - 1.8rem);
 `;
 
 export const FooterContent = styled.div`

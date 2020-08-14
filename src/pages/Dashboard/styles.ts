@@ -24,8 +24,51 @@ export const SideContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  > button {
+    margin-top: 1.6rem;
+    background: transparent;
+    border: 0;
+    color: var(--red);
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-left: 1.2rem;
+    }
+  }
+
   @media (min-width: 1100px) {
     align-items: unset;
+  }
+
+  > a {
+    margin-top: 4.2rem;
+    width: 30rem;
+    height: 6rem;
+    left: 12.2rem;
+    background-color: var(--purple-ju);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1.6rem;
+
+    font-weight: 700;
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: var(--background);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--dark-purple-ju);
+    }
+
+    @media (min-width: 1100px) {
+      margin-top: 8.6rem;
+    }
   }
 `;
 
@@ -72,34 +115,6 @@ export const ProfileInfo = styled.div`
     font-family: Pompiere;
     font-size: 2.8rem;
     color: var(--dark-purple-ju);
-  }
-`;
-
-export const NewItemButton = styled.button`
-  margin-top: 4.2rem;
-  width: 30rem;
-  height: 6rem;
-  left: 12.2rem;
-  background-color: var(--purple-ju);
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 1.6rem;
-
-  font-weight: bold;
-  font-size: 2.4rem;
-  color: var(--background);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: var(--dark-purple-ju);
-  }
-
-  @media (min-width: 1100px) {
-    margin-top: 8.6rem;
   }
 `;
 

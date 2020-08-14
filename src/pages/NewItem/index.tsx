@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from '@unform/web';
 
 import {
   Container,
@@ -11,22 +12,27 @@ import {
   Submit,
 } from './styles';
 
-import Modal from '../Modal';
-import TextInput from '../TextInput';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import TextInput from '../../components/TextInput';
 
-interface IModalProps {
-  isOpen: boolean;
-  setIsOpen: () => void;
-}
-
-const ModalAddItem: React.FC<IModalProps> = ({ isOpen, setIsOpen }) => {
+const NewItem: React.FC = () => {
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Container>
-        <Title>
-          <h1>NOVO ITEM</h1>
-          <span>*Itens obrigatórios</span>
-        </Title>
+    <Container>
+      <Header />
+
+      <Title>
+        <h1>NOVO ITEM</h1>
+        <span>*Itens obrigatórios</span>
+      </Title>
+      <Form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+        onSubmit={() => {}}
+      >
         <Content>
           <Inputs>
             <TextInput name="name" title="Nome do produto*" />
@@ -49,10 +55,12 @@ const ModalAddItem: React.FC<IModalProps> = ({ isOpen, setIsOpen }) => {
             </MorePhotos>
           </Photos>
         </Content>
-        <Submit onClick={setIsOpen}>Enviar novo item para avaliação</Submit>
-      </Container>
-    </Modal>
+        <Submit type="submit">Enviar novo item para avaliação</Submit>
+      </Form>
+
+      <Footer />
+    </Container>
   );
 };
 
-export default ModalAddItem;
+export default NewItem;

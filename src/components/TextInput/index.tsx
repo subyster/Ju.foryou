@@ -9,7 +9,7 @@ import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
 
 import { FiAlertTriangle } from 'react-icons/fi';
-import { Container, Title, InputBox, Error } from './styles';
+import { Container, Label, Title, InputBox, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
@@ -51,7 +51,15 @@ const TextInput: React.FC<InputProps> = ({
 
   return (
     <Container style={{ width: boxWidth }}>
-      <Title>{title}</Title>
+      <Label>
+        <Title>{title}</Title>
+
+        {error && (
+          <Error title={error}>
+            <FiAlertTriangle color="var(--red)" />
+          </Error>
+        )}
+      </Label>
       <InputBox isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
         {Icon && <Icon size={20} />}
         <input
@@ -61,12 +69,6 @@ const TextInput: React.FC<InputProps> = ({
           ref={inputRef}
           {...rest}
         />
-
-        {error && (
-          <Error>
-            <FiAlertTriangle color="var(--red)" />
-          </Error>
-        )}
       </InputBox>
     </Container>
   );

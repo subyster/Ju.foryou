@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -6,14 +6,33 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div``;
+
+const appearFromAbove = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const AnimationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   margin-top: 14.4rem;
-  width: 42rem;
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 40rem;
 
     button {
       width: 100%;
@@ -38,6 +57,8 @@ export const Content = styled.div`
       }
     }
   }
+
+  animation: ${appearFromAbove} 1s;
 `;
 
 export const FormTitle = styled.h1`
