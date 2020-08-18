@@ -61,12 +61,13 @@ export const UpdatePicture = styled.div`
   }
 `;
 
-export const UpdatePictureButton = styled.button`
+export const UpdatePictureButton = styled.label`
   position: absolute;
   background-color: var(--dark-purple-ju);
   width: 5.6rem;
   height: 5.6rem;
   border-radius: 50%;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -75,6 +76,10 @@ export const UpdatePictureButton = styled.button`
   bottom: -1rem;
   right: 2.2rem;
   transition: background-color 0.2s;
+
+  input {
+    display: none;
+  }
 
   &:hover {
     background-color: var(--purple-ju);
@@ -106,7 +111,10 @@ export const FormColumn = styled.div`
 `;
 
 export const FormLine = styled.div`
-  margin-bottom: 3.2rem;
+  & + div {
+    margin-top: 3.2rem;
+  }
+
   max-width: 47.5rem;
   width: 100%;
 
@@ -121,6 +129,7 @@ export const FormLine = styled.div`
   }
 
   #confirm {
+    margin-top: 1.84rem;
     width: 100%;
     height: 6.4rem;
     background-color: var(--purple-ju);
@@ -141,10 +150,4 @@ export const FormLine = styled.div`
       background-color: var(--dark-purple-ju);
     }
   }
-`;
-
-export const ConfirmForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 `;

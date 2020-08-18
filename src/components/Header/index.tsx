@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
             </button>
           )}
           {displayProfileMenu && (
-            <ProfileMenu>
+            <ProfileMenu onBlur={() => setDisplayProfileMenu(false)}>
               <Link to="/dashboard">
                 <FiUser size={24} />
                 Meu Perfil

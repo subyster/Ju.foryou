@@ -1,10 +1,22 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Form } from '@unform/web';
-import axios from 'axios';
-
-import { Link } from 'react-router-dom';
+import React, {
+  useState,
+  useEffect,
+  ChangeEvent,
+  useRef,
+  useCallback,
+} from 'react';
+import { useHistory } from 'react-router-dom';
 import { FiCamera } from 'react-icons/fi';
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
+import axios from 'axios';
+import api from '../../services/api';
+
+import getValidationErrors from '../../utils/getValidationErrors';
+import { useToast } from '../../hooks/toast';
+
 import {
   Container,
   Content,
@@ -15,15 +27,15 @@ import {
   FormContent,
   FormColumn,
   FormLine,
-  ConfirmForm,
 } from './styles';
 
-import profilePic from '../../assets/arthur.PNG';
+import blankAvatar from '../../assets/blank-avatar.svg';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import TextInput from '../../components/TextInput';
 import Select from '../../components/Select';
+import { useAuth } from '../../hooks/auth';
 
 interface IBGEUFResponse {
   sigla: string;
@@ -33,7 +45,28 @@ interface IBGECityResponse {
   nome: string;
 }
 
+interface ProfileFormData {
+  name: string;
+  surname: string;
+  cpf: number;
+  phone: number;
+  gender: string;
+  address: string;
+  neighborhood: string;
+  uf: string;
+  city: string;
+  email: string;
+  old_password: string;
+  password: string;
+  confirm_password: string;
+}
+
 const Profile: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+  const { addToast } = useToast();
+  const history = useHistory();
+  const { user, updateUser } = useAuth();
+
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [selectedUf, setSelectedUf] = useState('0');
@@ -79,6 +112,127 @@ const Profile: React.FC = () => {
     setSelectedCity(city);
   }
 
+  const handleSubmit = useCallback(
+    async (data: ProfileFormData) => {
+      try {
+        formRef.current?.setErrors({});
+
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
+          surname: Yup.string().required('Sobrenome obrigatório'),
+          cpf: Yup.number().typeError('Apenas números'),
+          phone: Yup.number().typeError('Apenas números'),
+          gender: Yup.string().required('Preencher campo'),
+          address: Yup.string().required('Endereço obrigatório'),
+          neighborhood: Yup.string().required('Campo obrigatório'),
+          uf: Yup.string().required('Campo obrigatório'),
+          city: Yup.string().required('Campo obrigatório'),
+          old_password: Yup.string(),
+          password: Yup.string().when('old_password', {
+            is: val => !!val.length,
+            then: Yup.string().required('Digite a nova senha'),
+            otherwise: Yup.string(),
+          }),
+          password_confirmation: Yup.string()
+            .when('old_password', {
+              is: val => !!val.length,
+              then: Yup.string().required('Confirme a nova senha'),
+              otherwise: Yup.string(),
+            })
+            .oneOf(
+              [Yup.ref('password'), undefined],
+              'As senhas devem ser iguais',
+            ),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        const {
+          name,
+          surname,
+          cpf,
+          phone,
+          gender,
+          address,
+          neighborhood,
+          uf,
+          city,
+          old_password,
+          password,
+          confirm_password,
+        } = data;
+
+        const formData = {
+          name,
+          surname,
+          cpf,
+          phone,
+          gender,
+          address,
+          neighborhood,
+          uf,
+          city,
+          ...(old_password
+            ? {
+                old_password,
+                password,
+                confirm_password,
+              }
+            : {}),
+        };
+
+        const response = await api.put('/profile', formData);
+
+        updateUser(response.data);
+
+        history.push('/dashboard');
+
+        addToast({
+          type: 'success',
+          title: 'Perfil atualizado com sucesso!',
+        });
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+
+          return;
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Erro na atualização',
+          description:
+            'Ocorreu ao atualizar o perfil, cheque os campos e tente novamente.',
+        });
+      }
+    },
+    [addToast, history, updateUser],
+  );
+
+  const handleAvatarChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files) {
+        const data = new FormData();
+
+        data.append('avatar', e.target.files[0]);
+
+        api.patch('/users/avatar', data).then(response => {
+          updateUser(response.data);
+
+          addToast({
+            type: 'success',
+            title: 'Avatar Atualizado!',
+          });
+        });
+      }
+    },
+    [addToast, updateUser],
+  );
+
   return (
     <Container>
       <Header />
@@ -90,14 +244,31 @@ const Profile: React.FC = () => {
             <span>Preencha apenas as informações a serem atualizadas:</span>
           </TopText>
           <UpdatePicture>
-            <img src={profilePic} alt="Profile pic" />
-            <UpdatePictureButton>
+            <img
+              src={user.avatar_url ? user.avatar_url : blankAvatar}
+              alt={user.name}
+            />
+            <UpdatePictureButton htmlFor="avatar">
               <FiCamera size={28} color="var(--background)" />
+
+              <input type="file" id="avatar" onChange={handleAvatarChange} />
             </UpdatePictureButton>
           </UpdatePicture>
         </TopContent>
 
-        <Form onSubmit={() => {}}>
+        <Form
+          ref={formRef}
+          initialData={{
+            name: user.name,
+            surname: user.surname,
+            cpf: user.cpf,
+            phone: user.phone,
+            gender: user.gender,
+            address: user.address,
+            neighborhood: user.neighborhood,
+          }}
+          onSubmit={handleSubmit}
+        >
           <FormContent>
             <FormColumn>
               <FormLine>
@@ -133,7 +304,7 @@ const Profile: React.FC = () => {
                   onChange={handleSelectedUf}
                   boxWidth={75}
                 >
-                  <option value="0"> </option>
+                  <option value={user.uf}>{user.uf}</option>
                   {ufs.map(uf => (
                     <option key={uf} value={uf}>
                       {uf}
@@ -147,7 +318,7 @@ const Profile: React.FC = () => {
                   onChange={handleSelectedCity}
                   boxWidth={175}
                 >
-                  <option value="0">Selecione a UF</option>
+                  <option value={user.city}>{user.city}</option>
                   {cities.map(city => (
                     <option key={city} value={city}>
                       {city}
@@ -158,7 +329,12 @@ const Profile: React.FC = () => {
             </FormColumn>
             <FormColumn>
               <FormLine>
-                <TextInput boxWidth={475} name="email" title="E-mail" />
+                <TextInput
+                  boxWidth={475}
+                  name="old_password"
+                  type="password"
+                  title="Senha atual"
+                />
               </FormLine>
 
               <FormLine>
@@ -166,7 +342,7 @@ const Profile: React.FC = () => {
                   boxWidth={475}
                   name="password"
                   type="password"
-                  title="Senha"
+                  title="Nova senha"
                 />
               </FormLine>
 
@@ -175,16 +351,14 @@ const Profile: React.FC = () => {
                   boxWidth={475}
                   name="confirm_password"
                   type="password"
-                  title="Confirmar Senha"
+                  title="Confirmar nova senha"
                 />
               </FormLine>
 
               <FormLine>
-                <ConfirmForm>
-                  <Link to="/dashboard" id="confirm">
-                    Atualizar Perfil
-                  </Link>
-                </ConfirmForm>
+                <button type="submit" id="confirm">
+                  Atualizar Perfil
+                </button>
               </FormLine>
             </FormColumn>
           </FormContent>

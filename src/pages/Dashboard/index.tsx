@@ -22,8 +22,9 @@ import {
   ItensContainer,
   ItensScroll,
 } from './styles';
+import { useAuth } from '../../hooks/auth';
 
-import profilePic from '../../assets/arthur.PNG';
+import blankAvatar from '../../assets/blank-avatar.svg';
 import jeansImg from '../../assets/jeans.jpg';
 
 import Header from '../../components/Header';
@@ -31,6 +32,8 @@ import Footer from '../../components/Footer';
 import ItemCard from '../../components/ItemCard';
 
 const Dashboard: React.FC = () => {
+  const { user } = useAuth();
+
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
 
   const [state, setState] = useState({
@@ -61,11 +64,18 @@ const Dashboard: React.FC = () => {
         <SideContainer>
           <Profile>
             <ProfilePicture>
-              <img src={profilePic} alt="Arthur" />
+              <img
+                src={user.avatar_url ? user.avatar_url : blankAvatar}
+                alt={user.name}
+              />
             </ProfilePicture>
             <ProfileInfo>
-              <h1>Bem vindo,</h1>
-              <h2>Arthur</h2>
+              <h1>
+                Bem vind{user.gender === 'M' && 'o'}
+                {user.gender === 'F' && 'a'}
+                {user.gender === 'N' && 'x'},
+              </h1>
+              <h2>{user.name}</h2>
             </ProfileInfo>
           </Profile>
 
