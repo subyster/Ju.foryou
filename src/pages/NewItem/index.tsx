@@ -19,7 +19,7 @@ import TextInput from '../../components/TextInput';
 const NewItem: React.FC = () => {
   return (
     <Container>
-      <Header isPrivate />
+      <Header />
 
       <Title>
         <h1>NOVO ITEM</h1>

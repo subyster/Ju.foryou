@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, {
   useState,
@@ -52,6 +53,7 @@ interface SignUpFormData {
   city: string;
   email: string;
   password: string;
+  confirm_password: string;
 }
 
 const SignUp: React.FC = () => {

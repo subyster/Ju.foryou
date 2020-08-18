@@ -6,6 +6,9 @@ import Route from './Route';
 import Home from '../pages/Home';
 import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
+import ForgotPassword from '../pages/ForgotPassword';
+import ResetPassword from '../pages/ResetPassword';
+
 import Dashboard from '../pages/Dashboard';
 import NewItem from '../pages/NewItem';
 import Profile from '../pages/Profile';
@@ -15,6 +18,8 @@ const Routes: React.FC = () => (
     <Route path="/" exact component={Home} isHome />
     <Route path="/signup" component={SignUp} />
     <Route path="/signin" component={SignIn} />
+    <Route path="/forgot-password" component={ForgotPassword} />
+    <Route path="/reset-password" component={ResetPassword} />
 
     <Route path="/dashboard" component={Dashboard} isPrivate />
     <Route path="/new-item" component={NewItem} isPrivate />

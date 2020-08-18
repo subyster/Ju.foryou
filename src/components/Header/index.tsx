@@ -16,16 +16,10 @@ import { Container, Menu, ProfileMenu, Social, HeaderContent } from './styles';
 interface HeaderProps {
   isHome?: boolean;
   isSignIn?: boolean;
-  isPrivate?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({
-  isHome,
-  isSignIn,
-  isPrivate,
-  children,
-}) => {
-  const { signOut } = useAuth();
+const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
+  const { signOut, user } = useAuth();
 
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
 
@@ -41,9 +35,9 @@ const Header: React.FC<HeaderProps> = ({
         </Link>
 
         <Menu>
-          {!isPrivate && !isHome && <Link to="/">Home</Link>}
-          {!isPrivate && !isSignIn && <Link to="/signin">Login</Link>}
-          {isPrivate && (
+          {!isHome && <Link to="/">Home</Link>}
+          {!user && !isSignIn && <Link to="/signin">Login</Link>}
+          {user && (
             <button onClick={handleToggleProfileMenu} type="button">
               Perfil
             </button>

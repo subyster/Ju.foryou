@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Header isPrivate />
+      <Header />
 
       <Content>
         <SideContainer>

@@ -1,11 +1,10 @@
-import React, { useRef, useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useRef, useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
+import { FiLogIn, FiMail } from 'react-icons/fi';
 
-import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -21,41 +20,45 @@ import {
   InputBlock,
   Actions,
 } from './styles';
+import api from '../../services/api';
 
-interface SignInFormData {
+interface ForgotPasswordFormData {
   email: string;
-  password: string;
 }
 
-const SignIn: React.FC = () => {
+const ForgotPassword: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const formRef = useRef<FormHandles>(null);
-  const history = useHistory();
 
-  const { signIn } = useAuth();
   const { addToast } = useToast();
 
   const handleSubmit = useCallback(
-    async (data: SignInFormData) => {
+    async (data: ForgotPasswordFormData) => {
       try {
+        setLoading(true);
+
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um E-mail válido'),
-          password: Yup.string().required('Senha obrigatória'),
         });
 
         await schema.validate(data, {
           abortEarly: false,
         });
 
-        await signIn({
+        await api.post('/password/forgot', {
           email: data.email,
-          password: data.password,
         });
 
-        history.push('/dashboard');
+        addToast({
+          type: 'success',
+          title: 'E-mail de recuperação enviado!',
+          description:
+            'Cheque sua caixa de entrada e siga as instruções para recuperar sua senha no Ju.foryou',
+        });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -67,13 +70,15 @@ const SignIn: React.FC = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro na autenticação',
+          title: 'Erro na recuperação de senha',
           description:
-            'Ocorreu um erro ao fazer login, cheque suas credenciais.',
+            'Ocorreu um erro ao tentar realizar a recuperação da senha, tente novamente',
         });
+      } finally {
+        setLoading(false);
       }
     },
-    [signIn, addToast, history],
+    [addToast],
   );
 
   return (
@@ -83,27 +88,25 @@ const SignIn: React.FC = () => {
       <Content>
         <AnimationContainer>
           <Form ref={formRef} onSubmit={handleSubmit}>
-            <FormTitle>Faça seu login</FormTitle>
+            <FormTitle>Recuperar senha</FormTitle>
 
             <InputBlock>
-              <TextInput name="email" icon={FiMail} title="E-mail" />
-              <TextInput
-                name="password"
-                icon={FiLock}
-                type="password"
-                title="Senha"
-              />
+              <TextInput name="email" icon={FiMail} title="E-mail cadastrado" />
             </InputBlock>
 
-            <button type="submit">Entrar</button>
+            <button type="submit">
+              {loading ? (
+                <p>Carregando...</p>
+              ) : (
+                <p>Enviar e-mail de recuperação</p>
+              )}
+            </button>
           </Form>
 
           <Actions>
-            <Link to="/forgot-password">Esqueci minha senha</Link>
-
-            <Link to="/signup">
+            <Link to="/signin">
               <FiLogIn size={18} />
-              Criar conta
+              Voltar ao Login
             </Link>
           </Actions>
         </AnimationContainer>
@@ -114,4 +117,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;
