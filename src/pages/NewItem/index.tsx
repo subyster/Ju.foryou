@@ -23,7 +23,7 @@ const NewItem: React.FC = () => {
 
       <Title>
         <h1>NOVO ITEM</h1>
-        <span>*Itens obrigatórios</span>
+        <span>*Campos obrigatórios</span>
       </Title>
       <Form
         style={{

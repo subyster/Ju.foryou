@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-wrap-multilines */
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useCallback, useEffect } from 'react';
 
 import {
   FormLabel,
@@ -25,14 +25,16 @@ import {
 import { useAuth } from '../../hooks/auth';
 
 import blankAvatar from '../../assets/blank-avatar.svg';
-import jeansImg from '../../assets/jeans.jpg';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import ItemCard from '../../components/ItemCard';
+import ItemCard, { Item } from '../../components/ItemCard';
+import api from '../../services/api';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
+
+  const [items, setItems] = useState([]);
 
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
 
@@ -44,6 +46,16 @@ const Dashboard: React.FC = () => {
     accessories: false,
     books: false,
   });
+
+  const loadItems = useCallback(async () => {
+    api.get(`/items/${user.id}`).then(response => {
+      setItems(response.data);
+    });
+  }, [user.id]);
+
+  useEffect(() => {
+    loadItems();
+  }, [loadItems]);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -176,30 +188,9 @@ const Dashboard: React.FC = () => {
         <ItensContainer>
           <h1>Meus itens:</h1>
           <ItensScroll>
-            <ItemCard
-              image={jeansImg}
-              name="Calça jeans 42"
-              value="R$65,00"
-              status="available"
-            />
-            <ItemCard
-              image={jeansImg}
-              name="Calça jeans 42"
-              value="R$65,00"
-              status="sold"
-            />
-            <ItemCard
-              image={jeansImg}
-              name="Calça jeans 42"
-              value="R$65,00"
-              status="pendent"
-            />
-            <ItemCard
-              image={jeansImg}
-              name="Calça jeans 42"
-              value="R$65,00"
-              status="available"
-            />
+            {items.map((item: Item) => {
+              return <ItemCard key={item.id} item={item} />;
+            })}
           </ItensScroll>
         </ItensContainer>
       </Content>

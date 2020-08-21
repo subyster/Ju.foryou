@@ -7,22 +7,33 @@ import {
   FiAlertTriangle,
 } from 'react-icons/fi';
 import { Container, Info, Status, Buttons } from './styles';
+import { User } from '../../hooks/auth';
+import formatValue from '../../utils/formatValue';
 
-interface ItemCardProps {
-  image: string;
+export interface Item {
+  id: string;
+  user: User;
   name: string;
-  value: string;
+  category_name: string;
+  price: number;
+  size: string;
+  avatar_url: string;
   status: 'sold' | 'available' | 'pendent';
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ image, name, value, status }) => {
+interface ItemCardProps {
+  item: Item;
+}
+
+const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
   return (
     <Container>
-      <img src={image} alt="imagem" />
+      {children}
+      <img src={item.avatar_url} alt={item.name} />
       <Info>
-        <span>{name}</span>
-        <strong>{value}</strong>
-        {status === 'available' && (
+        <span>{item.name}</span>
+        <strong>{formatValue(item.price)}</strong>
+        {item.status === 'available' && (
           <Status>
             <span style={{ color: 'var(--dark-purple-ju)' }}>À venda</span>
             <Buttons>
@@ -35,7 +46,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ image, name, value, status }) => {
             </Buttons>
           </Status>
         )}
-        {status === 'sold' && (
+        {item.status === 'sold' && (
           <Status>
             <span style={{ color: 'var(--green)' }}>Vendido!</span>
             <Buttons>
@@ -48,7 +59,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ image, name, value, status }) => {
             </Buttons>
           </Status>
         )}
-        {status === 'pendent' && (
+        {item.status === 'pendent' && (
           <Status>
             <span style={{ color: 'var(--red)' }}>Pendente</span>
             <Buttons>
