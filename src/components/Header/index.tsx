@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FiFacebook,
   FiInstagram,
   FiMail,
   FiUser,
   FiEdit,
   FiLogOut,
+  FiClipboard,
 } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/auth';
@@ -44,6 +44,10 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
           )}
           {displayProfileMenu && (
             <ProfileMenu onBlur={() => setDisplayProfileMenu(false)}>
+              <Link to="/manager">
+                <FiClipboard size={24} />
+                Gerenciar
+              </Link>
               <Link to="/dashboard">
                 <FiUser size={24} />
                 Meu Perfil
@@ -60,10 +64,7 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
           )}
 
           <Social>
-            <a href="/">
-              <FiFacebook />
-            </a>
-            <a href="/">
+            <a href="https://www.instagram.com/ju.foryou/" target="_blank">
               <FiInstagram />
             </a>
             <a href="/">

@@ -4,6 +4,33 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  #submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4rem;
+    width: 32rem;
+    padding: 1.6rem;
+    background-color: var(--purple-ju);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0.8rem;
+
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    color: var(--background);
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--dark-purple-ju);
+    }
+
+    @media (min-width: 800px) {
+      width: 47.5rem;
+    }
+  }
 `;
 
 export const Title = styled.div`
@@ -69,37 +96,6 @@ export const Photos = styled.div`
   }
 `;
 
-export const AddPhoto = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 31.6rem;
-  height: 37.8rem;
-  background: var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 2.4rem;
-
-  div {
-    border: 2px dashed var(--dark-purple-ju);
-    height: 30.24rem;
-    width: 25.28rem;
-    border-radius: 2.4rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    span {
-      font-size: 1.6rem;
-      line-height: 1.9rem;
-      color: var(--dark1);
-      margin: 2.4rem;
-    }
-  }
-`;
-
 export const MorePhotos = styled.div`
   display: flex;
   align-items: center;
@@ -129,32 +125,5 @@ export const MorePhotos = styled.div`
 
   @media (min-width: 1100px) {
     margin-left: 5.6rem;
-  }
-`;
-
-export const Submit = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 4rem;
-  width: 32rem;
-  padding: 1.6rem;
-  background-color: var(--purple-ju);
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0.8rem;
-
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3rem;
-  color: var(--background);
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: var(--dark-purple-ju);
-  }
-
-  @media (min-width: 800px) {
-    width: 47.5rem;
   }
 `;

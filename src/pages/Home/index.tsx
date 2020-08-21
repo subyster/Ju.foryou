@@ -1,8 +1,8 @@
 import React from 'react';
 import { FiChevronLeft, FiChevronRight, FiDollarSign } from 'react-icons/fi';
-
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../hooks/auth';
 import Header from '../../components/Header';
 import ReasonBox from '../../components/ReasonBox';
 import Footer from '../../components/Footer';
@@ -44,6 +44,7 @@ import {
 } from './styles';
 
 const Home: React.FC = () => {
+  const { user } = useAuth();
   return (
     <Container>
       <Header isHome />
@@ -76,12 +77,22 @@ const Home: React.FC = () => {
             </p>
           </div>
         </AboutUs>
-        <ToSignUp>
-          <div>
-            <h1>Quer anunciar com a gente?</h1>
-          </div>
-          <Link to="/signup">Faça seu cadastro</Link>
-        </ToSignUp>
+        {!user && (
+          <ToSignUp>
+            <div>
+              <h1>Quer anunciar com a gente?</h1>
+            </div>
+            <Link to="/signup">Faça seu cadastro</Link>
+          </ToSignUp>
+        )}
+        {user && (
+          <ToSignUp>
+            <div>
+              <h1>Desapegue do que não precisa mais</h1>
+            </div>
+            <Link to="/signup">Anunciar uma peça</Link>
+          </ToSignUp>
+        )}
       </FirstBlock>
 
       <PorqueComprar>
@@ -308,12 +319,14 @@ const Home: React.FC = () => {
         </RecapInfo>
       </Recap>
 
-      <JoinUs>
-        <h1>E aí? Quer anunciar com a gente?</h1>
-        <h2>
-          Preencha nosso formulário clicando <Link to="/signup">AQUI</Link>
-        </h2>
-      </JoinUs>
+      {!user && (
+        <JoinUs>
+          <h1>E aí? Quer anunciar com a gente?</h1>
+          <h2>
+            Preencha nosso formulário clicando <Link to="/signup">AQUI</Link>
+          </h2>
+        </JoinUs>
+      )}
       <Footer />
     </Container>
   );

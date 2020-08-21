@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
+export const ItemCardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 2.4rem;
+  background: var(--white);
+  box-shadow: 1px 2px 4px var(--purple-ju);
+`;
+
 export const Container = styled.div`
   width: 35.2rem;
   height: 42rem;
-  background: var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
-  border-radius: 2.4rem;
   position: relative;
 
   display: flex;
@@ -25,7 +31,7 @@ export const Container = styled.div`
 export const Info = styled.div`
   width: 35.2rem;
   height: 18.5rem;
-  padding: 3.4rem 8rem 3.4rem 3.4rem;
+  padding: 3.4rem;
   background: var(--white);
   opacity: 0.9;
   border-radius: 0px 0px 2.4rem 2.4rem;
@@ -55,5 +61,5 @@ export const Status = styled.div`
 `;
 
 export const Buttons = styled.div`
-  margin-right: 2.6rem;
+  right: auto;
 `;
