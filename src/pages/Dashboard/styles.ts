@@ -169,6 +169,12 @@ export const ItensScroll = styled.div`
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    font-family: Pompiere;
+    color: var(--dark1);
+    font-size: 3.2rem;
+  }
+
   div + div {
     margin-top: 9.6rem;
   }
@@ -184,7 +190,7 @@ export const ItensScroll = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 9.6rem;
-    justify-content: space-between;
+    grid-column-gap: 8rem;
 
     div + div {
       margin-top: 0;
@@ -192,15 +198,15 @@ export const ItensScroll = styled.div`
 
     overflow: scroll;
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 8px;
     }
     ::-webkit-scrollbar-track {
       background-color: transparent;
-      border-radius: 5px;
+      border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb {
       background-color: var(--purple-ju);
-      border-radius: 5px;
+      border-radius: 4px;
       transition: background-color 0.3s;
     }
     ::-webkit-scrollbar-thumb:hover {

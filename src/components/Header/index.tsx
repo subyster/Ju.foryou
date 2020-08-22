@@ -64,7 +64,11 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
           )}
 
           <Social>
-            <a href="https://www.instagram.com/ju.foryou/" target="_blank">
+            <a
+              href="https://www.instagram.com/ju.foryou/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FiInstagram />
             </a>
             <a href="/">

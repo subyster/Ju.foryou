@@ -12,8 +12,10 @@ import ResetPassword from '../pages/ResetPassword';
 import Dashboard from '../pages/Dashboard';
 import NewItem from '../pages/NewItem';
 import Profile from '../pages/Profile';
+
 import ManagerPage from '../pages/ManagerPages/ManagerPage';
 import ManagerCategories from '../pages/ManagerPages/Categories';
+import ManagerCustumers from '../pages/ManagerPages/Custumers';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -29,6 +31,7 @@ const Routes: React.FC = () => (
 
     <Route path="/manager" exact component={ManagerPage} isPrivate />
     <Route path="/manager/categories" component={ManagerCategories} isPrivate />
+    <Route path="/manager/custumers" component={ManagerCustumers} isPrivate />
   </Switch>
 );
 

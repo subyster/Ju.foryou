@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../../../services/api';
 
-import { Container, Content, SideMenu, Page } from './styles';
+import { Container, Content, Page } from './styles';
 
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import ItemCard, { Item } from '../../../components/ItemCard';
+import ManagerMenu from '../../../components/ManagerMenu';
 
 const ManagerPage: React.FC = () => {
   const [items, setItems] = useState([]);
@@ -26,16 +26,7 @@ const ManagerPage: React.FC = () => {
       <Header />
 
       <Content>
-        <SideMenu>
-          <ul>
-            <button type="button">Todos os items</button>
-            <button type="button">Items pendentes</button>
-            <button type="button">Items à venda</button>
-            <button type="button">Items vendidos</button>
-            <button type="button">Clientes</button>
-            <Link to="/manager/categories">Categorias</Link>
-          </ul>
-        </SideMenu>
+        <ManagerMenu />
 
         <Page>
           {items.map((item: Item) => {

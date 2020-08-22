@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, {
   useState,

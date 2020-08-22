@@ -17,7 +17,11 @@ const Footer: React.FC = () => {
             <p>contato@juforyou.com.br</p>
           </div>
 
-          <a href="https://www.instagram.com/ju.foryou/" target="_blank">
+          <a
+            href="https://www.instagram.com/ju.foryou/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FiInstagram size={32} color="var(--dark-purple-ju)" />
             <p>@ju.foryou</p>
           </a>
