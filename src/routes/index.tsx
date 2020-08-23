@@ -16,6 +16,9 @@ import Profile from '../pages/Profile';
 import ManagerPage from '../pages/ManagerPages/ManagerPage';
 import ManagerCategories from '../pages/ManagerPages/Categories';
 import ManagerCustumers from '../pages/ManagerPages/Custumers';
+import PendentItems from '../pages/ManagerPages/PendentItems';
+import AvailableItems from '../pages/ManagerPages/AvailableItems';
+import SoldItems from '../pages/ManagerPages/SoldItems';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -32,6 +35,13 @@ const Routes: React.FC = () => (
     <Route path="/manager" exact component={ManagerPage} isPrivate />
     <Route path="/manager/categories" component={ManagerCategories} isPrivate />
     <Route path="/manager/custumers" component={ManagerCustumers} isPrivate />
+    <Route path="/manager/pendent-items" component={PendentItems} isPrivate />
+    <Route
+      path="/manager/available-items"
+      component={AvailableItems}
+      isPrivate
+    />
+    <Route path="/manager/sold-items" component={SoldItems} isPrivate />
   </Switch>
 );
 

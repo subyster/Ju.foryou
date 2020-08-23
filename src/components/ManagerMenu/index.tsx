@@ -12,9 +12,9 @@ const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage }) => {
     <Container>
       <ul>
         <Link to="/manager">Todos os items</Link>
-        <Link to="/manager">Items pendentes</Link>
-        <Link to="/manager">Items à venda</Link>
-        <Link to="/manager">Items vendidos</Link>
+        <Link to="/manager/pendent-items">Items pendentes</Link>
+        <Link to="/manager/available-items">Items à venda</Link>
+        <Link to="/manager/sold-items">Items vendidos</Link>
         <Link to="/manager/custumers">Clientes</Link>
         <Link to="/manager/categories">Categorias</Link>
       </ul>

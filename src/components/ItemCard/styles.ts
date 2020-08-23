@@ -7,6 +7,9 @@ export const ItemCardContent = styled.div`
   border-radius: 2.4rem;
   background: var(--white);
   box-shadow: 1px 2px 4px var(--purple-ju);
+
+  max-width: 35.2rem;
+  max-height: 47rem;
 `;
 
 export const Container = styled.div`

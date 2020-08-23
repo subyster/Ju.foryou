@@ -31,8 +31,8 @@ const Categories: React.FC = () => {
   const [categories, setCategories] = useState<CategoryProps[]>([]);
   const [addCategory, setAddCategory] = useState(false);
 
-  function loadCategories(): void {
-    api.get<CategoryProps[]>('/categories').then(response => {
+  async function loadCategories(): Promise<void> {
+    await api.get<CategoryProps[]>('/categories').then(response => {
       setCategories(response.data);
     });
   }
@@ -61,8 +61,6 @@ const Categories: React.FC = () => {
         api.post('/categories', data);
 
         setAddCategory(false);
-
-        loadCategories();
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -77,10 +75,18 @@ const Categories: React.FC = () => {
           title: 'Erro na criação de categoria',
           description: 'Verifique se o nome é único e tente novamente.',
         });
+      } finally {
+        loadCategories();
       }
     },
     [addToast],
   );
+
+  const handleDeleteCategory = useCallback(async (name: string) => {
+    await api.delete(`/categories/${name}`);
+
+    loadCategories();
+  }, []);
 
   return (
     <Container>
@@ -93,7 +99,9 @@ const Categories: React.FC = () => {
           {addCategory && (
             <Form ref={formRef} onSubmit={handleSubmit} id="addCategory">
               <TextInput name="name" title="Nome da categoria" />
-              <button type="submit">+ Adicionar Categoria</button>
+              <button id="addButton" type="submit">
+                + Adicionar Categoria
+              </button>
             </Form>
           )}
           {!addCategory && (
@@ -104,7 +112,12 @@ const Categories: React.FC = () => {
           {categories.map(category => (
             <section key={category.id}>
               <span>{category.name}</span>
-              <FiTrash2 size={28} />
+              <button
+                type="button"
+                onClick={() => handleDeleteCategory(category.name)}
+              >
+                <FiTrash2 size={28} />
+              </button>
             </section>
           ))}
         </Page>

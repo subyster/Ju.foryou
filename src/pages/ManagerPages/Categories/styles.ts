@@ -16,7 +16,8 @@ export const Page = styled.div`
   display: flex;
   flex-direction: column;
 
-  button {
+  > button,
+  #addButton {
     margin-left: 8rem;
     margin-bottom: 4rem;
     width: 32.4rem;
@@ -52,6 +53,10 @@ export const Page = styled.div`
       font-family: Pompiere;
       font-size: 3.2rem;
       line-height: 3.8rem;
+    }
+
+    button {
+      background-color: transparent;
     }
 
     svg {
