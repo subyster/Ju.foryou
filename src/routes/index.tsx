@@ -11,6 +11,7 @@ import ResetPassword from '../pages/ResetPassword';
 
 import Dashboard from '../pages/Dashboard';
 import NewItem from '../pages/NewItem';
+import EditItem from '../pages/EditItem';
 import Profile from '../pages/Profile';
 
 import ManagerPage from '../pages/ManagerPages/ManagerPage';
@@ -30,6 +31,7 @@ const Routes: React.FC = () => (
 
     <Route path="/dashboard" component={Dashboard} isPrivate />
     <Route path="/new-item" component={NewItem} isPrivate />
+    <Route path="/item/:item_id" component={EditItem} isPrivate />
     <Route path="/profile" component={Profile} isPrivate />
 
     <Route path="/manager" exact component={ManagerPage} isPrivate />

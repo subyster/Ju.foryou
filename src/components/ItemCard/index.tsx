@@ -6,15 +6,22 @@ import {
   FiCheckCircle,
   FiAlertTriangle,
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { ItemCardContent, Container, Info, Status, Buttons } from './styles';
-import { User } from '../../hooks/auth';
 import formatValue from '../../utils/formatValue';
 
 export interface Item {
   id: string;
-  user: User;
+  user_id: string;
+  user: {
+    name: string;
+    surname: string;
+    avatar_url: string;
+    email: string;
+  };
   name: string;
   category_name: string;
+  instagram_url: string;
   price: number;
   size: string;
   avatar_url: string;
@@ -38,12 +45,22 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
             <Status>
               <span style={{ color: 'var(--dark-purple-ju)' }}>À venda</span>
               <Buttons>
-                <FiInstagram size={28} color="var(--dark-purple-ju)" />
-                <FiEdit
-                  size={28}
-                  color="var(--dark-purple-ju)"
-                  style={{ marginLeft: 16 }}
-                />
+                <Link
+                  to={
+                    item.instagram_url
+                      ? item.instagram_url
+                      : 'https://www.instagram.com/ju.foryou/'
+                  }
+                >
+                  <FiInstagram size={28} color="var(--dark-purple-ju)" />
+                </Link>
+                <Link to={`/item/${item.id}`}>
+                  <FiEdit
+                    size={28}
+                    color="var(--dark-purple-ju)"
+                    style={{ marginLeft: 16 }}
+                  />
+                </Link>
               </Buttons>
             </Status>
           )}
@@ -52,11 +69,13 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
               <span style={{ color: 'var(--green)' }}>Vendido!</span>
               <Buttons>
                 <FiCheckCircle size={28} color="var(--green)" />
-                <FiEdit
-                  size={28}
-                  color="var(--green)"
-                  style={{ marginLeft: 16 }}
-                />
+                <Link to={`/item/${item.id}`}>
+                  <FiEdit
+                    size={28}
+                    color="var(--green)"
+                    style={{ marginLeft: 16 }}
+                  />
+                </Link>
               </Buttons>
             </Status>
           )}
@@ -65,11 +84,13 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
               <span style={{ color: 'var(--red)' }}>Pendente</span>
               <Buttons>
                 <FiAlertTriangle size={28} color="var(--red)" />
-                <FiEdit
-                  size={28}
-                  color="var(--red)"
-                  style={{ marginLeft: 16 }}
-                />
+                <Link to={`/item/${item.id}`}>
+                  <FiEdit
+                    size={28}
+                    color="var(--red)"
+                    style={{ marginLeft: 16 }}
+                  />
+                </Link>
               </Buttons>
             </Status>
           )}

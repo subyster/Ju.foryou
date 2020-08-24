@@ -99,6 +99,7 @@ export const Filters = styled.div`
   max-width: 136px;
 
   display: flex;
+  align-items: center;
   flex-direction: column;
 
   button {
@@ -106,6 +107,7 @@ export const Filters = styled.div`
     align-items: center;
     margin-bottom: 0.8rem;
     background: transparent;
+    color: var(--dark-purple-ju);
     transition: opacity 0.2s;
 
     &:hover {
@@ -115,25 +117,24 @@ export const Filters = styled.div`
     h1 {
       font-family: Pompiere;
       font-size: 3.6rem;
-      color: var(--dark-purple-ju);
-      margin-right: 1.2rem;
+    }
+
+    svg {
+      margin-left: 1.2rem;
     }
   }
 
-  .title {
-    margin-top: 1.2rem;
-    font-family: Pompiere;
-    font-size: 3.2rem;
-    color: var(--purple-ju);
-  }
-
-  .label {
-    font-size: 2.4rem;
-    color: var(--dark-purple-ju);
+  div {
+    margin-top: 2.4rem;
+    width: 30rem;
   }
 
   @media (min-width: 700px) {
     margin-top: 5.2rem;
+  }
+
+  @media (min-width: 1100px) {
+    align-items: unset;
   }
 `;
 

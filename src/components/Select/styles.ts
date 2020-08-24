@@ -19,7 +19,7 @@ export const Container = styled.div<ContainerProps>`
   select {
     width: 100%;
     padding: 1.6rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 
     background: var(--white);
     box-shadow: 1px 2px 4px var(--purple-ju);

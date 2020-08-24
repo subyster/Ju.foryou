@@ -1,16 +1,9 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState, ChangeEvent, useCallback, useEffect } from 'react';
 
-import {
-  FormLabel,
-  FormControl,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-} from '@material-ui/core';
-
 import { Link } from 'react-router-dom';
-import { FiFilter } from 'react-icons/fi';
+import { FiFilter, FiX } from 'react-icons/fi';
+import { Form } from '@unform/web';
 import {
   Container,
   Content,
@@ -30,22 +23,21 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ItemCard, { Item } from '../../components/ItemCard';
 import api from '../../services/api';
+import Select from '../../components/Select';
+
+interface CategoryProps {
+  name: string;
+}
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Item[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState('0');
 
-  const [areFiltersVisible, setAreFiltersVisible] = useState(false);
-
-  const [state, setState] = useState({
-    available: false,
-    pendent: false,
-    sold: false,
-    clothing: false,
-    accessories: false,
-    books: false,
-  });
+  const [areFiltersVisible, setAreFiltersVisible] = useState(true);
+  const [clearFilters, setClearFilters] = useState(false);
 
   const loadItems = useCallback(async () => {
     api.get(`/items/${user.id}`).then(response => {
@@ -57,16 +49,37 @@ const Dashboard: React.FC = () => {
     loadItems();
   }, [loadItems]);
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  useEffect(() => {
+    api.get<CategoryProps[]>('/categories').then(response => {
+      const categoriesNames = response.data.map(category => category.name);
 
-  const { available, pendent, sold, clothing, accessories, books } = state;
+      setCategories(categoriesNames.sort());
+    });
+  }, []);
 
-  function handleToggleFilters(): void {
+  const handleToggleFilters = useCallback((): void => {
     setAreFiltersVisible(!areFiltersVisible);
-  }
+  }, [areFiltersVisible]);
+
+  const handleClearFilters = useCallback(() => {
+    setClearFilters(false);
+    setSelectedCategory('0');
+
+    loadItems();
+  }, [loadItems]);
+
+  const handleFilterByCategory = useCallback(
+    async (e: ChangeEvent<HTMLSelectElement>) => {
+      const category = e.target.value;
+      setSelectedCategory(category);
+
+      const filter = items.filter(item => item.category_name === category);
+
+      setClearFilters(true);
+      setItems(filter);
+    },
+    [items],
+  );
 
   return (
     <Container>
@@ -97,91 +110,35 @@ const Dashboard: React.FC = () => {
               <h1>Filtros</h1>
               <FiFilter size={28} color="var(--dark-purple-ju)" />
             </button>
+            {clearFilters && (
+              <button type="button" onClick={handleClearFilters}>
+                <span>Limpar filtros</span>
+                <FiX size={16} />
+              </button>
+            )}
             {areFiltersVisible && (
-              <FormControl component="fieldset">
-                <FormLabel component="legend" className="title">
-                  Status
-                </FormLabel>
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={available}
-                        onChange={handleChange}
-                        name="available"
-                        color="primary"
-                      />
-                    }
-                    label="À venda"
-                    className="label"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={pendent}
-                        onChange={handleChange}
-                        name="pendent"
-                        color="primary"
-                      />
-                    }
-                    label="Pendentes"
-                    className="label"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={sold}
-                        onChange={handleChange}
-                        name="sold"
-                        color="primary"
-                      />
-                    }
-                    label="Vendidos"
-                    className="label"
-                  />
-                </FormGroup>
-                <FormLabel component="legend" className="title">
-                  Categoria
-                </FormLabel>
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={clothing}
-                        onChange={handleChange}
-                        name="clothing"
-                        color="primary"
-                      />
-                    }
-                    label="Roupas"
-                    className="label"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={accessories}
-                        onChange={handleChange}
-                        name="accessories"
-                        color="primary"
-                      />
-                    }
-                    label="Acessórios"
-                    className="label"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={books}
-                        onChange={handleChange}
-                        name="books"
-                        color="primary"
-                      />
-                    }
-                    label="Livros"
-                    className="label"
-                  />
-                </FormGroup>
-              </FormControl>
+              <Form onSubmit={handleClearFilters}>
+                <Select
+                  name="category"
+                  title="Filtrar por categoria"
+                  value={selectedCategory}
+                  onChange={handleFilterByCategory}
+                >
+                  <option value="0"> </option>
+                  {categories.map(category => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </Select>
+
+                <Select name="status" title="Filtrar por status">
+                  <option value="0"> </option>
+                  <option value="pendent">Pendente</option>
+                  <option value="available">Disponível</option>
+                  <option value="sold">Vendido</option>
+                </Select>
+              </Form>
             )}
           </Filters>
         </SideContainer>

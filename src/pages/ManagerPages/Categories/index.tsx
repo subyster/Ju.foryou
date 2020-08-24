@@ -82,11 +82,16 @@ const Categories: React.FC = () => {
     [addToast],
   );
 
-  const handleDeleteCategory = useCallback(async (name: string) => {
-    await api.delete(`/categories/${name}`);
-
-    loadCategories();
-  }, []);
+  const handleDeleteCategory = useCallback(
+    async (name: string) => {
+      const remainingCategories = categories.filter(
+        category => category.name !== name,
+      );
+      setCategories(remainingCategories);
+      await api.delete(`/categories/${name}`);
+    },
+    [categories],
+  );
 
   return (
     <Container>
