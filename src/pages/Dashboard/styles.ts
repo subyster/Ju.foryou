@@ -129,6 +129,28 @@ export const Filters = styled.div`
     width: 30rem;
   }
 
+  #filterButton {
+    color: var(--background);
+    background-color: var(--purple-ju);
+    margin-top: 2.4rem;
+    width: 30rem;
+    height: 6rem;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1.6rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    transition: background-color 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--dark-purple-ju);
+    }
+  }
+
   @media (min-width: 700px) {
     margin-top: 5.2rem;
   }

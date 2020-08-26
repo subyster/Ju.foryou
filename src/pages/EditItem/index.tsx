@@ -9,7 +9,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 
 import {
@@ -139,15 +139,25 @@ const EditItem: React.FC = () => {
       <Header />
 
       <Title>
-        <h1>EDITAR ITEM</h1>
-        <span>
-          de <img src={user.avatar_url} alt={user.name} /> {user.name}{' '}
-          {user.surname}
-        </span>
-        <button type="button">
-          <FiTrash2 size={24} />
-          Excluir item
-        </button>
+        <header>
+          <h1>EDITAR ITEM</h1>
+        </header>
+        <section>
+          <button type="button">
+            <FiArrowLeft size={24} />
+            Voltar
+          </button>
+
+          <span>
+            de <img src={user.avatar_url} alt={user.name} /> {user.name}{' '}
+            {user.surname}
+          </span>
+
+          <button type="button" id="delete">
+            <FiTrash2 size={24} />
+            Excluir item
+          </button>
+        </section>
       </Title>
       <Form
         ref={formRef}

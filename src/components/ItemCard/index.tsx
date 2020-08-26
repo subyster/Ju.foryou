@@ -45,15 +45,17 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
             <Status>
               <span style={{ color: 'var(--dark-purple-ju)' }}>À venda</span>
               <Buttons>
-                <Link
-                  to={
+                <a
+                  href={
                     item.instagram_url
                       ? item.instagram_url
                       : 'https://www.instagram.com/ju.foryou/'
                   }
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FiInstagram size={28} color="var(--dark-purple-ju)" />
-                </Link>
+                </a>
                 <Link to={`/item/${item.id}`}>
                   <FiEdit
                     size={28}

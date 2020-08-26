@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-wrap-multilines */
-import React, { useState, ChangeEvent, useCallback, useEffect } from 'react';
+import React, {
+  useState,
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
 
 import { Link } from 'react-router-dom';
 import { FiFilter, FiX } from 'react-icons/fi';
+import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import {
   Container,
@@ -29,14 +36,21 @@ interface CategoryProps {
   name: string;
 }
 
+interface FilterItemsFormData {
+  category?: string;
+  status?: string;
+}
+
 const Dashboard: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
   const { user } = useAuth();
 
   const [items, setItems] = useState<Item[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('0');
+  const [selectedStatus, setSelectedStatus] = useState('0');
 
-  const [areFiltersVisible, setAreFiltersVisible] = useState(true);
+  const [areFiltersVisible, setAreFiltersVisible] = useState(false);
   const [clearFilters, setClearFilters] = useState(false);
 
   const loadItems = useCallback(async () => {
@@ -68,17 +82,65 @@ const Dashboard: React.FC = () => {
     loadItems();
   }, [loadItems]);
 
-  const handleFilterByCategory = useCallback(
-    async (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectedCategory = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
       const category = e.target.value;
       setSelectedCategory(category);
+    },
+    [],
+  );
 
-      const filter = items.filter(item => item.category_name === category);
+  const handleSelectedStatus = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      const status = e.target.value;
+      setSelectedStatus(status);
+    },
+    [],
+  );
+
+  const handleFilterItems = useCallback(
+    async (data: FilterItemsFormData) => {
+      const { category, status } = data;
+
+      if (category === '0') {
+        const filtersResponse = await api.get(
+          `/items/search_items/${user.id}`,
+          {
+            params: {
+              status,
+            },
+          },
+        );
+
+        setItems(filtersResponse.data);
+      } else if (status === '0') {
+        const filtersResponse = await api.get(
+          `/items/search_items/${user.id}`,
+          {
+            params: {
+              category,
+            },
+          },
+        );
+
+        setItems(filtersResponse.data);
+      } else {
+        const filtersResponse = await api.get(
+          `/items/search_items/${user.id}`,
+          {
+            params: {
+              category,
+              status,
+            },
+          },
+        );
+
+        setItems(filtersResponse.data);
+      }
 
       setClearFilters(true);
-      setItems(filter);
     },
-    [items],
+    [user.id],
   );
 
   return (
@@ -117,12 +179,12 @@ const Dashboard: React.FC = () => {
               </button>
             )}
             {areFiltersVisible && (
-              <Form onSubmit={handleClearFilters}>
+              <Form ref={formRef} onSubmit={handleFilterItems}>
                 <Select
                   name="category"
                   title="Filtrar por categoria"
                   value={selectedCategory}
-                  onChange={handleFilterByCategory}
+                  onChange={handleSelectedCategory}
                 >
                   <option value="0"> </option>
                   {categories.map(category => (
@@ -132,12 +194,21 @@ const Dashboard: React.FC = () => {
                   ))}
                 </Select>
 
-                <Select name="status" title="Filtrar por status">
+                <Select
+                  name="status"
+                  title="Filtrar por status"
+                  value={selectedStatus}
+                  onChange={handleSelectedStatus}
+                >
                   <option value="0"> </option>
                   <option value="pendent">Pendente</option>
                   <option value="available">Disponível</option>
                   <option value="sold">Vendido</option>
                 </Select>
+
+                <button type="submit" id="filterButton">
+                  Filtrar
+                </button>
               </Form>
             )}
           </Filters>

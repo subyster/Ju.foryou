@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../../services/api';
 
 import { Container, Content, Page } from './styles';
@@ -35,7 +36,7 @@ const Custumers: React.FC = () => {
         <Page>
           <h1>Nossos clientes</h1>
           {custumers.map(custumer => (
-            <div key={custumer.id}>
+            <Link to={`/manager/custumers/${custumer.id}`} key={custumer.id}>
               <img
                 src={custumer.avatar_url ? custumer.avatar_url : blankAvatar}
                 alt={custumer.name}
@@ -43,7 +44,7 @@ const Custumers: React.FC = () => {
               <span>
                 {custumer.name} {custumer.surname}
               </span>
-            </div>
+            </Link>
           ))}
         </Page>
       </Content>

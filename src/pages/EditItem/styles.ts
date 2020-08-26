@@ -41,6 +41,24 @@ export const Title = styled.div`
   flex-direction: column;
   color: var(--dark1);
 
+  section {
+    width: 100%;
+    margin-top: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #delete {
+      transition: color 0.3s;
+
+      &:hover {
+        opacity: 1;
+        color: var(--red);
+      }
+    }
+  }
+
   h1 {
     font-family: Pompiere;
     font-size: 3.6rem;
@@ -68,7 +86,7 @@ export const Title = styled.div`
     font-size: 2rem;
     font-weight: 500;
     color: var(--dark1);
-    transition: color 0.3s;
+    transition: opacity 0.3s;
 
     display: flex;
     align-items: center;
@@ -78,15 +96,18 @@ export const Title = styled.div`
     }
 
     &:hover {
-      color: var(--red);
+      opacity: 0.8;
       background-color: var(--light-purple-ju);
     }
   }
 
   @media (min-width: 800px) {
     padding: 0 12rem;
-    justify-content: space-between;
-    flex-direction: row;
+
+    section {
+      justify-content: space-between;
+      flex-direction: row;
+    }
 
     h1 {
       margin-bottom: 0;

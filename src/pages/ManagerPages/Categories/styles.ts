@@ -62,14 +62,14 @@ export const Page = styled.div`
     svg {
       color: var(--dark1);
       transition: color 0.2s;
+
+      &:hover {
+        color: var(--red);
+      }
     }
 
     &:hover {
       background-color: var(--light-purple-ju);
-
-      svg {
-        color: var(--red);
-      }
     }
   }
 

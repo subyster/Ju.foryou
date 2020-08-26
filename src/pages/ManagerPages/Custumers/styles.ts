@@ -24,13 +24,14 @@ export const Page = styled.div`
     color: var(--dark1);
   }
 
-  div {
+  a {
     width: 100%;
     height: 7.4rem;
     padding-left: 8rem;
     padding-right: 11rem;
     border-top: 1px solid var(--purple-ju);
     transition: background-color 0.2s;
+    text-decoration: none;
 
     display: flex;
     align-items: center;
