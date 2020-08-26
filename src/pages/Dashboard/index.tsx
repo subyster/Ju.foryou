@@ -202,7 +202,7 @@ const Dashboard: React.FC = () => {
                 >
                   <option value="0"> </option>
                   <option value="pendent">Pendente</option>
-                  <option value="available">Disponível</option>
+                  <option value="available">À venda</option>
                   <option value="sold">Vendido</option>
                 </Select>
 

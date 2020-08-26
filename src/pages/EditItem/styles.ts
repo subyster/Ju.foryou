@@ -26,10 +26,6 @@ export const Container = styled.div`
     &:hover {
       background-color: var(--dark-purple-ju);
     }
-
-    @media (min-width: 800px) {
-      width: 47.5rem;
-    }
   }
 `;
 
@@ -177,6 +173,20 @@ export const Photos = styled.div`
   align-items: center;
   flex-direction: column;
 
+  p {
+    color: var(--dark-purple-ju);
+    margin-bottom: 0.8rem;
+  }
+
+  @media (min-width: 1100px) {
+    margin-top: 0;
+  }
+`;
+
+export const UpdateAvatarButton = styled.label`
+  cursor: pointer;
+  transition: opacity 0.3s;
+
   img {
     width: 31.6rem;
     height: 37.8rem;
@@ -186,7 +196,11 @@ export const Photos = styled.div`
     object-fit: cover;
   }
 
-  @media (min-width: 1100px) {
-    margin-top: 0;
+  input {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `;

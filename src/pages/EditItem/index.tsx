@@ -19,6 +19,7 @@ import {
   FormInputs,
   Inputs,
   Photos,
+  UpdateAvatarButton,
 } from './styles';
 
 import { useToast } from '../../hooks/toast';
@@ -30,6 +31,7 @@ import TextInput from '../../components/TextInput';
 import Select from '../../components/Select';
 import { Item } from '../../components/ItemCard';
 import { User } from '../../hooks/auth';
+import ModalDeleteItem from '../../components/ModalDeleteItem';
 
 interface CategoryProps {
   name: string;
@@ -49,6 +51,8 @@ const EditItem: React.FC = () => {
   const { item_id } = useParams();
   const { addToast } = useToast();
   const history = useHistory();
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [item, setItem] = useState<Item>({} as Item);
   const [user, setUser] = useState<User>({} as User);
@@ -134,8 +138,59 @@ const EditItem: React.FC = () => {
     [addToast, history, item.id],
   );
 
+  const handleDeleteItem = useCallback(async () => {
+    try {
+      await api.delete(`/items/${item.id}`);
+
+      history.goBack();
+
+      addToast({
+        type: 'success',
+        title: 'Item excluído com sucesso',
+      });
+    } catch (err) {
+      addToast({
+        type: 'error',
+        title: 'Erro ao excluir o item',
+        description: 'Verifique se o item ainda existe e tente novamente',
+      });
+    }
+  }, [addToast, history, item.id]);
+
+  const handleItemAvatarChange = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files) {
+        const data = new FormData();
+
+        data.append('avatar', e.target.files[0]);
+
+        await api.patch(`/items/${item.id}`, data);
+
+        api.get(`/items/show/${item.id}`).then(response => {
+          setItem(response.data);
+        });
+
+        addToast({
+          type: 'success',
+          title: 'Foto do item atualizada!',
+        });
+      }
+    },
+    [addToast, item.id],
+  );
+
+  function toggleModal(): void {
+    setModalOpen(!modalOpen);
+  }
+
   return (
     <Container>
+      <ModalDeleteItem
+        handleDeleteItem={handleDeleteItem}
+        isOpen={modalOpen}
+        setIsOpen={toggleModal}
+      />
+
       <Header />
 
       <Title>
@@ -143,7 +198,7 @@ const EditItem: React.FC = () => {
           <h1>EDITAR ITEM</h1>
         </header>
         <section>
-          <button type="button">
+          <button type="button" onClick={() => history.goBack()}>
             <FiArrowLeft size={24} />
             Voltar
           </button>
@@ -153,7 +208,7 @@ const EditItem: React.FC = () => {
             {user.surname}
           </span>
 
-          <button type="button" id="delete">
+          <button type="button" id="delete" onClick={toggleModal}>
             <FiTrash2 size={24} />
             Excluir item
           </button>
@@ -199,7 +254,7 @@ const EditItem: React.FC = () => {
               <Select name="status" title="Status do Item">
                 <option value={item.status}> </option>
                 <option value="pendent">Pendente</option>
-                <option value="available">Disponível</option>
+                <option value="available">À venda</option>
                 <option value="sold">Vendido</option>
               </Select>
               <TextInput name="size" title="Tamanho" />
@@ -208,11 +263,21 @@ const EditItem: React.FC = () => {
           </FormInputs>
 
           <Photos>
-            <img src={item.avatar_url} alt={item.name} />
+            <p>Foto do item (clique para alterar)</p>
+
+            <UpdateAvatarButton htmlFor="avatar">
+              <img src={item.avatar_url} alt={item.name} />
+
+              <input
+                type="file"
+                id="avatar"
+                onChange={handleItemAvatarChange}
+              />
+            </UpdateAvatarButton>
           </Photos>
         </Content>
         <button type="submit" id="submitButton">
-          Enviar novo item para avaliação
+          Atualizar item
         </button>
       </Form>
 
