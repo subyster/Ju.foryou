@@ -7,6 +7,9 @@ import {
   FiEdit,
   FiLogOut,
   FiClipboard,
+  FiTwitter,
+  FiLogIn,
+  FiHome,
 } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/auth';
@@ -35,11 +38,22 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
         </Link>
 
         <Menu>
-          {!isHome && <Link to="/">Home</Link>}
-          {!user && !isSignIn && <Link to="/signin">Login</Link>}
+          {!isHome && (
+            <Link to="/">
+              <FiHome />
+              <span>Home</span>
+            </Link>
+          )}
+          {!user && !isSignIn && (
+            <Link to="/signin">
+              <FiLogIn />
+              <span>Login</span>
+            </Link>
+          )}
           {user && (
             <button onClick={handleToggleProfileMenu} type="button">
-              Perfil
+              <FiUser />
+              <span>Perfil</span>
             </button>
           )}
           {displayProfileMenu && (
@@ -64,6 +78,9 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
           )}
 
           <Social>
+            <a href="/">
+              <FiTwitter />
+            </a>
             <a
               href="https://www.instagram.com/ju.foryou/"
               target="_blank"

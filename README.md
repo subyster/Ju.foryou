@@ -1,8 +1,8 @@
-# Ju.foryou
-Projeto em desenvolvimento para o brechó Ju.foryou
+# SManager
 
-O Ju.foryou é um brechó online com foco em vendas de artigos usados, roupas, acessórios, livros, sapatos e afins,
-voltado à todos os tipos de público. Eles cuidam de toda a parte de restauração, precificação e promoção dos items.
+SManager é uma aplicação para o gerenciamento de venda de produtos em um brechó, sebo e afins.
 
-Nesta aplicação o usuário faz um cadastro de parceria com o brechó e enviar as fotos e descrição dos seus produtos,
-que serão anunciados nas redes sociais da empresa.
+Nesta aplicação o usuário faz um cadastro de parceria com a loja e envia as fotos e descrição dos seus produtos, que serão anunciados nas redes sociais da empresa.
+
+O dono da empresa e seus funcionários podem controlar o estoque de item, separá-los por categorias
+e alterar o status deles quanto a venda.

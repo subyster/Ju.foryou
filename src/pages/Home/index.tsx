@@ -145,7 +145,7 @@ const Home: React.FC = () => {
       <HowToAnnounce>
         <HowToAnnounceTitle>Como anunciar?</HowToAnnounceTitle>
         <HowToAnnounceBox>
-          <FiChevronLeft size="3.2rem" color="#500a0f" />
+          <FiChevronLeft />
           <HowToAnnounceContent>
             <h2>Por que anunciar?</h2>
             <p>
@@ -159,7 +159,7 @@ const Home: React.FC = () => {
             </p>
             <p>Abra espaço pra coisas novas na sua vida.</p>
           </HowToAnnounceContent>
-          <FiChevronRight size="3.2rem" color="#500a0f" />
+          <FiChevronRight />
         </HowToAnnounceBox>
       </HowToAnnounce>
 

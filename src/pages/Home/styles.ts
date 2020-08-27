@@ -195,9 +195,21 @@ export const HowToAnnounceBox = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  svg {
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--dark1);
+    flex-shrink: 0;
+  }
+
   @media (min-width: 1100px) {
     width: 101rem;
     height: 46rem;
+  }
+
+  svg {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 `;
 
@@ -213,6 +225,7 @@ export const HowToAnnounceContent = styled.div`
   h2 {
     font-weight: bold;
     font-size: 3.2rem;
+    text-align: center;
 
     color: var(--dark1);
   }

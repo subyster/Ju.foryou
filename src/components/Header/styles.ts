@@ -49,14 +49,35 @@ export const Menu = styled.div`
     align-items: center;
     padding: 0 1.6rem;
     text-decoration: none;
-    font-family: Pompiere;
     color: var(--dark-purple-ju);
-    font-size: 3.2rem;
     height: 8rem;
     transition: background-color 0.4s;
 
+    span {
+      font-family: Pompiere;
+      font-size: 3.2rem;
+      display: none;
+    }
+
+    svg {
+      height: 3.6rem;
+      width: 3.6rem;
+    }
+
     &:hover {
       background-color: var(--background);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    button {
+      svg {
+        display: none;
+      }
+
+      span {
+        display: inline;
+      }
     }
   }
 `;
