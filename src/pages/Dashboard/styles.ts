@@ -33,7 +33,7 @@ export const SideContainer = styled.div`
     width: 30rem;
     height: 6rem;
     left: 12.2rem;
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1.6rem;
 
@@ -49,7 +49,7 @@ export const SideContainer = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
 
     @media (min-width: 1100px) {
@@ -90,7 +90,7 @@ export const ProfileInfo = styled.div`
   h2 {
     font-family: Pompiere;
     font-size: 2.8rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
@@ -107,7 +107,7 @@ export const Filters = styled.div`
     align-items: center;
     margin-bottom: 0.8rem;
     background: transparent;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     transition: opacity 0.2s;
 
     &:hover {
@@ -131,7 +131,7 @@ export const Filters = styled.div`
 
   #filterButton {
     color: var(--background);
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
     margin-top: 2.4rem;
     width: 30rem;
     height: 6rem;
@@ -147,7 +147,7 @@ export const Filters = styled.div`
 
     &:hover {
       opacity: 1;
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
   }
 
@@ -228,12 +228,12 @@ export const ItensScroll = styled.div`
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: var(--purple-ju);
+      background-color: var(--primary);
       border-radius: 4px;
       transition: background-color 0.3s;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
     ::-webkit-scrollbar-corner {
       background-color: transparent;

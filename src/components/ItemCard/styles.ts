@@ -6,7 +6,7 @@ export const ItemCardContent = styled.div`
 
   border-radius: 2.4rem;
   background: var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
 
   max-width: 35.2rem;
   max-height: 47rem;
@@ -53,7 +53,7 @@ export const Info = styled.div`
   strong {
     font-weight: bold;
     font-size: 2.8rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 

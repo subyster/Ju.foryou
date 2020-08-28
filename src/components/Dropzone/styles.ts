@@ -8,7 +8,7 @@ export const Container = styled.div`
   width: 31.6rem;
   height: 37.8rem;
   background: var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
   border-radius: 2.4rem;
   cursor: pointer;
 
@@ -20,7 +20,7 @@ export const Container = styled.div`
   }
 
   div {
-    border: 2px dashed var(--dark-purple-ju);
+    border: 2px dashed var(--dark-primary);
     transition: border-color 0.3s;
     height: 30.24rem;
     width: 25.28rem;
@@ -33,7 +33,7 @@ export const Container = styled.div`
     text-align: center;
 
     svg {
-      color: var(--dark-purple-ju);
+      color: var(--dark-primary);
       transition: color 0.3s;
     }
 
@@ -48,10 +48,10 @@ export const Container = styled.div`
 
   &:hover {
     div {
-      border-color: var(--purple-ju);
+      border-color: var(--primary);
 
       svg {
-        color: var(--purple-ju);
+        color: var(--primary);
       }
 
       span {

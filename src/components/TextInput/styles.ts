@@ -22,7 +22,7 @@ export const Label = styled.header`
 
 export const Title = styled.h1`
   font-size: 1.4rem;
-  color: var(--dark-purple-ju);
+  color: var(--dark-primary);
 `;
 
 export const Error = styled(Tooltip)`
@@ -50,7 +50,7 @@ export const InputBox = styled.div<InputColorProps>`
   width: 100%;
 
   border: 2px solid var(--white);
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
   display: flex;
   align-items: center;
 
@@ -64,7 +64,7 @@ export const InputBox = styled.div<InputColorProps>`
 
   svg {
     margin-right: 2.4rem;
-    color: var(--purple-ju);
+    color: var(--primary);
   }
 
   ${props =>
@@ -76,9 +76,9 @@ export const InputBox = styled.div<InputColorProps>`
   ${props =>
     props.isFocused &&
     css`
-      border-color: var(--dark-purple-ju);
+      border-color: var(--dark-primary);
       svg {
-        color: var(--dark-purple-ju);
+        color: var(--dark-primary);
       }
     `}
 
@@ -86,7 +86,7 @@ export const InputBox = styled.div<InputColorProps>`
     props.isFilled &&
     css`
       svg {
-        color: var(--dark-purple-ju);
+        color: var(--dark-primary);
       }
     `}
 `;

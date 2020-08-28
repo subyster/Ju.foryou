@@ -38,7 +38,7 @@ export const AnimationContainer = styled.div`
       width: 100%;
       height: 6.4rem;
       margin-top: 6.4rem;
-      background-color: var(--purple-ju);
+      background-color: var(--primary);
       box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
       border-radius: 0.8rem;
 
@@ -53,7 +53,7 @@ export const AnimationContainer = styled.div`
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: var(--dark-purple-ju);
+        background-color: var(--dark-primary);
       }
     }
   }
@@ -64,7 +64,7 @@ export const AnimationContainer = styled.div`
 export const FormTitle = styled.h1`
   font-family: Pompiere;
   font-size: 4.2rem;
-  color: var(--purple-ju);
+  color: var(--primary);
 `;
 
 export const InputBlock = styled.div`
@@ -91,7 +91,7 @@ export const Actions = styled.div`
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: 500;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     transition: opacity 0.2s;
 
     display: flex;
@@ -102,7 +102,7 @@ export const Actions = styled.div`
     }
 
     & + a {
-      color: var(--dark-purple-ju);
+      color: var(--dark-primary);
       font-weight: 400;
     }
 

@@ -48,7 +48,7 @@ export const AboutUs = styled.div`
       align-items: center;
       text-align: center;
 
-      color: var(--dark-purple-ju);
+      color: var(--dark-primary);
     }
   }
 `;
@@ -85,7 +85,7 @@ export const ToSignUp = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: var(--purple-ju);
+    background: var(--primary);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1.6rem;
     width: 30rem;
@@ -101,7 +101,7 @@ export const ToSignUp = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
   }
 `;
@@ -185,11 +185,11 @@ export const HowToAnnounceTitle = styled.div`
 `;
 
 export const HowToAnnounceBox = styled.div`
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   border-radius: 3.2rem;
   padding: 1.6rem;
   margin: 6rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
 
   display: flex;
   align-items: center;
@@ -236,7 +236,7 @@ export const HowToAnnounceContent = styled.div`
     line-height: 2.6rem;
     text-align: center;
 
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
@@ -290,9 +290,9 @@ export const HowMuchBox1 = styled.div`
   height: 100%;
   margin: 0 2.4rem;
   padding: 2.2rem 1.8rem;
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   border-radius: 3.2rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
 
   display: flex;
   flex-direction: column;
@@ -303,7 +303,7 @@ export const HowMuchBox1 = styled.div`
   p {
     font-size: 1.8rem;
     line-height: 2.5rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 
   p + p {
@@ -317,10 +317,10 @@ export const HowMuchBox1 = styled.div`
 
 export const HowMuchBox2 = styled.div`
   margin: 2.4rem;
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   border-radius: 3.2rem;
   padding: 2.8rem 4.2rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
 
   display: flex;
   flex-direction: column;
@@ -339,7 +339,7 @@ export const HowMuchBox2 = styled.div`
     margin-top: 2.4rem;
     font-size: 1.8rem;
     line-height: 2.2rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 
   #last-paragraph {
@@ -373,7 +373,7 @@ export const HowMuchBox3 = styled.div`
   p {
     font-size: 1.2rem;
     line-height: 1.8rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
@@ -405,9 +405,9 @@ export const HowMuchValues = styled.div`
 export const HowMuchValuesBox = styled.div`
   width: 24rem;
   height: 24rem;
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   border-radius: 1.6rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
   padding: 2.4rem 0;
 
   display: flex;
@@ -430,7 +430,7 @@ export const HowMuchSold = styled.div`
 
 export const HowMuchGet = styled.p`
   font-size: 8.8rem;
-  color: var(--dark-purple-ju);
+  color: var(--dark-primary);
 `;
 
 export const Obs = styled.div`
@@ -471,9 +471,9 @@ export const ObsBox = styled.div`
   max-height: 44rem;
   margin-right: 4.8rem;
   margin-left: 4.8rem;
-  background: var(--pink-ju);
+  background: var(--secondary);
   border-radius: 3.2rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
   padding: 4.2rem 7rem;
 
   display: flex;
@@ -486,7 +486,7 @@ export const ObsBox = styled.div`
     margin-bottom: 2.4rem;
     font-size: 2rem;
     line-height: 2.3rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 
   div {
@@ -531,9 +531,9 @@ export const RecapInfo = styled.div`
 `;
 
 export const RecapBox = styled.div`
-  background: var(--pink-ju);
+  background: var(--secondary);
   border-radius: 3.2rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
   margin: 0 4.8rem;
   padding: 3.6rem;
 
@@ -549,7 +549,7 @@ export const RecapBox = styled.div`
     font-size: 2rem;
     line-height: 2.3rem;
     text-align: center;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 
   @media (min-width: 1100px) {
@@ -589,11 +589,11 @@ export const JoinUs = styled.div`
     font-weight: bold;
     font-size: 3.6rem;
     text-decoration: none;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
       color: var(--background);
     }
   }

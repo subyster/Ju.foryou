@@ -13,7 +13,7 @@ export const Container = styled.div<ContainerProps>`
 
   h1 {
     font-size: 1.4rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 
   select {
@@ -22,7 +22,7 @@ export const Container = styled.div<ContainerProps>`
     font-size: 1.8rem;
 
     background: var(--white);
-    box-shadow: 1px 2px 4px var(--purple-ju);
+    box-shadow: 1px 2px 4px var(--primary);
     border: 2px solid var(--white);
     border-radius: 0.8rem;
     display: flex;
@@ -45,7 +45,7 @@ export const Container = styled.div<ContainerProps>`
     props.isFocused &&
     css`
       select {
-        border-color: var(--dark-purple-ju);
+        border-color: var(--dark-primary);
       }
     `}
 `;

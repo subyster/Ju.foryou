@@ -3,13 +3,22 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  max-width: 80vw;
+  margin-top: 8rem;
+
   width: 100%;
-  margin: 11.6rem;
   margin-bottom: 0;
 
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    max-width: 80vw;
+    margin: 11.6rem;
+    flex-direction: row;
+    align-items: unset;
+    justify-content: space-between;
+  }
 `;
 
 export const Page = styled.div`
@@ -47,7 +56,6 @@ export const Page = styled.div`
 
   #scroll {
     width: 100%;
-    margin-left: 6.4rem;
 
     h2 {
       font-family: Pompiere;
@@ -55,19 +63,38 @@ export const Page = styled.div`
       color: var(--dark1);
     }
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 9.6rem;
-    grid-column-gap: 12rem;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > div + div {
+      margin-top: 6.4rem;
+    }
+
+    @media (min-width: 700px) {
+      > div + div {
+        margin-top: 0;
+      }
+      margin-left: 6.4rem;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 9.6rem;
+      grid-column-gap: 6.4rem;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1100px) {
+      grid-column-gap: 12rem;
+    }
   }
 `;
 
 export const CustumerInfo = styled.div`
   width: 100%;
-  padding: 1rem 11rem 1rem 8rem;
-  border-top: 1px solid var(--purple-ju);
-  border-bottom: 1px solid var(--purple-ju);
+  padding: 1rem 2.4rem 1rem 3.2rem;
+  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
 
   div {
     display: flex;
@@ -86,6 +113,10 @@ export const CustumerInfo = styled.div`
       font-family: Pompiere;
       font-size: 3.2rem;
       line-height: 3.8rem;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 
@@ -96,6 +127,10 @@ export const CustumerInfo = styled.div`
       display: flex;
       align-items: center;
 
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
       color: var(--dark1);
 
       & + p {
@@ -104,6 +139,22 @@ export const CustumerInfo = styled.div`
 
       svg {
         margin-right: 0.8rem;
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    padding: 1rem 11rem 1rem 8rem;
+
+    div {
+      img {
+        height: 5.4rem;
+        width: 5.4rem;
+        margin-right: 3.2rem;
+      }
+
+      span {
+        font-size: 3.2rem;
       }
     }
   }

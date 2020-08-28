@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin-top: 4rem;
     width: 32rem;
     padding: 1.6rem;
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0.8rem;
 
@@ -24,7 +24,7 @@ export const Container = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
   }
 `;
@@ -93,7 +93,7 @@ export const Title = styled.div`
 
     &:hover {
       opacity: 0.8;
-      background-color: var(--light-purple-ju);
+      background-color: var(--light-primary);
     }
   }
 
@@ -174,7 +174,7 @@ export const Photos = styled.div`
   flex-direction: column;
 
   p {
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     margin-bottom: 0.8rem;
   }
 
@@ -191,7 +191,7 @@ export const UpdateAvatarButton = styled.label`
     width: 31.6rem;
     height: 37.8rem;
     background: var(--white);
-    box-shadow: 1px 2px 4px var(--purple-ju);
+    box-shadow: 1px 2px 4px var(--primary);
     border-radius: 2.4rem;
     object-fit: cover;
   }

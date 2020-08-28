@@ -39,7 +39,7 @@ export const TopText = styled.div`
   span {
     font-size: 2rem;
     line-height: 2.3rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
@@ -63,7 +63,7 @@ export const UpdatePicture = styled.div`
 
 export const UpdatePictureButton = styled.label`
   position: absolute;
-  background-color: var(--dark-purple-ju);
+  background-color: var(--dark-primary);
   width: 5.6rem;
   height: 5.6rem;
   border-radius: 50%;
@@ -82,7 +82,7 @@ export const UpdatePictureButton = styled.label`
   }
 
   &:hover {
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
   }
 `;
 
@@ -132,7 +132,7 @@ export const FormLine = styled.div`
     margin-top: 1.84rem;
     width: 100%;
     height: 6.4rem;
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0.8rem;
 
@@ -147,7 +147,7 @@ export const FormLine = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
   }
 `;

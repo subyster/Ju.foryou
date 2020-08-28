@@ -3,12 +3,22 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  max-width: 80vw;
+  margin-top: 8rem;
+
   width: 100%;
-  margin: 11.6rem;
   margin-bottom: 0;
 
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    max-width: 80vw;
+    margin: 11.6rem;
+    flex-direction: row;
+    align-items: unset;
+    justify-content: space-between;
+  }
 `;
 
 export const Page = styled.div`
@@ -18,18 +28,18 @@ export const Page = styled.div`
 
   h1 {
     font-family: Pompiere;
-    font-size: 4.8rem;
-    margin-left: 6.4rem;
-    margin-bottom: 2.4rem;
+    font-size: 3.6rem;
+    margin-left: 2.4rem;
+    margin-bottom: 1.6rem;
     color: var(--dark1);
   }
 
   a {
     width: 100%;
-    height: 7.4rem;
-    padding-left: 8rem;
-    padding-right: 11rem;
-    border-top: 1px solid var(--purple-ju);
+    height: 5.6rem;
+    padding-left: 2.4rem;
+    padding-right: 3.2rem;
+    border-top: 1px solid var(--primary);
     transition: background-color 0.2s;
     text-decoration: none;
 
@@ -37,22 +47,49 @@ export const Page = styled.div`
     align-items: center;
 
     img {
-      height: 5.4rem;
-      width: 5.4rem;
+      height: 3.6rem;
+      width: 3.6rem;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 3.2rem;
+      margin-right: 2rem;
     }
 
     span {
       color: var(--dark1);
       font-family: Pompiere;
-      font-size: 3.2rem;
+      font-size: 2.4rem;
       line-height: 3.8rem;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     &:hover {
-      background-color: var(--light-purple-ju);
+      background-color: var(--light-primary);
+    }
+  }
+
+  @media (min-width: 700px) {
+    h1 {
+      font-size: 4.8rem;
+      margin-left: 6.4rem;
+      margin-bottom: 2.4rem;
+    }
+
+    a {
+      padding-left: 8rem;
+      padding-right: 11rem;
+
+      img {
+        height: 5.4rem;
+        width: 5.4rem;
+        margin-right: 3.2rem;
+      }
+
+      span {
+        font-size: 3.2rem;
+      }
     }
   }
 `;

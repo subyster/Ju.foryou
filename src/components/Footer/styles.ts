@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 4.8rem;
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   width: calc(100vw - 1.8rem);
 `;
 
@@ -26,7 +26,7 @@ export const FooterContent = styled.div`
 export const FooterText = styled.div`
   font-family: Pompiere;
   font-size: 32px;
-  color: var(--dark-purple-ju);
+  color: var(--dark-primary);
 `;
 
 export const Social = styled.div`
@@ -45,7 +45,7 @@ export const Social = styled.div`
     p {
       font-family: Pompiere;
       font-size: 3.2rem;
-      color: var(--dark-purple-ju);
+      color: var(--dark-primary);
       margin-left: 3rem;
     }
   }

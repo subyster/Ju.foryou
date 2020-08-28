@@ -8,7 +8,7 @@ export const FormTitle = styled.div`
   font-family: Pompiere;
   font-size: 4.2rem;
   line-height: 5.6rem;
-  color: var(--purple-ju);
+  color: var(--primary);
 
   display: flex;
   justify-content: center;
@@ -59,7 +59,7 @@ export const FormLine = styled.div`
   #confirm {
     width: 100%;
     height: 6.4rem;
-    background-color: var(--purple-ju);
+    background-color: var(--primary);
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0.8rem;
 
@@ -74,7 +74,7 @@ export const FormLine = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: var(--dark-purple-ju);
+      background-color: var(--dark-primary);
     }
   }
 `;
@@ -94,12 +94,12 @@ export const AcceptTerms = styled.div`
   input {
     height: 1.6rem;
     width: 1.6rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
 export const AcceptText = styled.h1`
   margin-left: 0.8rem;
   font-size: 1.4rem;
-  color: var(--dark-purple-ju);
+  color: var(--dark-primary);
 `;

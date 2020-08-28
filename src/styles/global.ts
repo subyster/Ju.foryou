@@ -5,10 +5,10 @@ export default createGlobalStyle`
     --white: #fff;
     --background: #faf5f5;
     --dark1: #500A0F;
-    --pink-ju: #FFC2DF;
-    --purple-ju: #C6ADFF;
-    --dark-purple-ju: #8B12C4;
-    --light-purple-ju: #f1ebff;
+    --secondary: #FFC2DF;
+    --primary: #C6ADFF;
+    --dark-primary: #8B12C4;
+    --light-primary: #f1ebff;
     --red: #F50049;
     --light-red: #FFD6E2;
     --green: #127929;

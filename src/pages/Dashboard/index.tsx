@@ -170,7 +170,7 @@ const Dashboard: React.FC = () => {
           <Filters>
             <button onClick={handleToggleFilters} type="button">
               <h1>Filtros</h1>
-              <FiFilter size={28} color="var(--dark-purple-ju)" />
+              <FiFilter size={28} color="var(--dark-primary)" />
             </button>
             {clearFilters && (
               <button type="button" onClick={handleClearFilters}>

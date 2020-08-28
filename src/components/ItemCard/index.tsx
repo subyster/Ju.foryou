@@ -43,7 +43,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
           <strong>{formatValue(item.price)}</strong>
           {item.status === 'available' && (
             <Status>
-              <span style={{ color: 'var(--dark-purple-ju)' }}>À venda</span>
+              <span style={{ color: 'var(--dark-primary)' }}>À venda</span>
               <Buttons>
                 <a
                   href={
@@ -54,12 +54,12 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FiInstagram size={28} color="var(--dark-purple-ju)" />
+                  <FiInstagram size={28} color="var(--dark-primary)" />
                 </a>
                 <Link to={`/item/${item.id}`}>
                   <FiEdit
                     size={28}
-                    color="var(--dark-purple-ju)"
+                    color="var(--dark-primary)"
                     style={{ marginLeft: 16 }}
                   />
                 </Link>

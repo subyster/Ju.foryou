@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         </FooterText>
         <Social>
           <div>
-            <FiMail size={32} color="var(--dark-purple-ju)" />
+            <FiMail size={32} color="var(--dark-primary)" />
             <p>contato@juforyou.com.br</p>
           </div>
 
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FiInstagram size={32} color="var(--dark-purple-ju)" />
+            <FiInstagram size={32} color="var(--dark-primary)" />
             <p>@ju.foryou</p>
           </a>
         </Social>

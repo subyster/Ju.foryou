@@ -4,9 +4,9 @@ export const Container = styled.div`
   margin: 0 0.6rem;
   width: 25.6rem;
   height: 40rem;
-  background: var(--pink-ju);
+  background: var(--secondary);
   border-radius: 3.2rem;
-  box-shadow: 1px 2px 4px var(--purple-ju);
+  box-shadow: 1px 2px 4px var(--primary);
 
   display: flex;
   flex-direction: column;
@@ -36,5 +36,5 @@ export const Content = styled.div`
   align-items: center;
   text-align: center;
 
-  color: var(--dark-purple-ju);
+  color: var(--dark-primary);
 `;

@@ -15,7 +15,7 @@ export const Container = styled.div`
   span {
     display: flex;
     align-items: center;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     margin-top: 0.8rem;
 
     svg {
@@ -33,7 +33,7 @@ export const Container = styled.div`
     button {
       padding: 0.8rem 1.6rem;
       border-radius: 0.8rem;
-      background-color: var(--purple-ju);
+      background-color: var(--primary);
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
       transition: background-color 0.3s;
 
@@ -43,7 +43,7 @@ export const Container = styled.div`
       color: var(--background);
 
       &:hover {
-        background-color: var(--dark-purple-ju);
+        background-color: var(--dark-primary);
       }
     }
 

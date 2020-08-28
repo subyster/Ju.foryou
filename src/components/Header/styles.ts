@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  background-color: var(--pink-ju);
+  background-color: var(--secondary);
   left: 0%;
   right: 0%;
   top: 0px;
@@ -34,7 +34,7 @@ export const HeaderContent = styled.div`
   h1 {
     font-family: League Script;
     font-size: 3.6rem;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
   }
 `;
 
@@ -49,7 +49,7 @@ export const Menu = styled.div`
     align-items: center;
     padding: 0 1.6rem;
     text-decoration: none;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     height: 8rem;
     transition: background-color 0.4s;
 
@@ -70,7 +70,8 @@ export const Menu = styled.div`
   }
 
   @media (min-width: 1100px) {
-    button {
+    > a,
+    > button {
       svg {
         display: none;
       }
@@ -87,7 +88,7 @@ export const ProfileMenu = styled.div`
   top: calc(100% + 1px);
   left: -2rem;
   background-color: var(--background);
-  box-shadow: 1px 2px 4px var(--dark-purple-ju);
+  box-shadow: 1px 2px 4px var(--dark-primary);
   width: 100vw;
   z-index: 1;
 
@@ -101,7 +102,7 @@ export const ProfileMenu = styled.div`
 
     padding: 1.6rem;
     font: 500 2.8rem Pompiere;
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     transition: background-color 0.4s;
 
     svg {
@@ -109,7 +110,7 @@ export const ProfileMenu = styled.div`
     }
 
     &:hover {
-      background-color: var(--pink-ju);
+      background-color: var(--secondary);
     }
   }
 
@@ -133,7 +134,7 @@ export const Social = styled.div`
   }
 
   svg {
-    color: var(--dark-purple-ju);
+    color: var(--dark-primary);
     height: 3.2rem;
     width: 3.2rem;
 
