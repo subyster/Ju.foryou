@@ -50,7 +50,7 @@ const TextInput: React.FC<InputProps> = ({
   }, [registerField, fieldName]);
 
   return (
-    <Container style={{ width: boxWidth }}>
+    <Container className="input" style={{ width: boxWidth }}>
       <Label>
         <Title>{title}</Title>
 

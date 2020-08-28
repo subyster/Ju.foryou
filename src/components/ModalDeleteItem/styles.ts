@@ -6,9 +6,11 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
 
+  max-width: 30rem;
+
   h1 {
-    font-family: Pompiere;
-    font-size: 3.2rem;
+    font-size: 2.4rem;
+    font-weight: 500;
     color: var(--dark1);
   }
 
@@ -54,5 +56,9 @@ export const Container = styled.div`
         background-color: var(--red);
       }
     }
+  }
+
+  @media (min-width: 700px) {
+    max-width: unset;
   }
 `;

@@ -28,6 +28,7 @@ const ManagerPage: React.FC = () => {
       <Content>
         <ManagerMenu />
 
+        {items.length === 0 && <h1>Não há itens para serem mostrados.</h1>}
         <Page>
           {items.map((item: Item) => {
             return (

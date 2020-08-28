@@ -10,11 +10,19 @@ import {
   FiTwitter,
   FiLogIn,
   FiHome,
+  FiMenu,
 } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/auth';
 
-import { Container, Menu, ProfileMenu, Social, HeaderContent } from './styles';
+import {
+  Container,
+  Menu,
+  ProfileMenu,
+  Social,
+  HeaderContent,
+  MobileMenu,
+} from './styles';
 
 interface HeaderProps {
   isHome?: boolean;
@@ -25,31 +33,24 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
   const { signOut, user } = useAuth();
 
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleToggleProfileMenu = useCallback(() => {
     setDisplayProfileMenu(!displayProfileMenu);
   }, [displayProfileMenu]);
 
+  const handleToggleMobileMenu = useCallback(() => {
+    setMobileMenu(!mobileMenu);
+  }, [mobileMenu]);
+
   return (
     <Container>
       <HeaderContent>
         <Link to="/">
-          <h1>Ju.foryou</h1>
+          <h1>SManager</h1>
         </Link>
 
         <Menu>
-          {!isHome && (
-            <Link to="/">
-              <FiHome />
-              <span>Home</span>
-            </Link>
-          )}
-          {!user && !isSignIn && (
-            <Link to="/signin">
-              <FiLogIn />
-              <span>Login</span>
-            </Link>
-          )}
           {user && (
             <button onClick={handleToggleProfileMenu} type="button">
               <FiUser />
@@ -57,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
             </button>
           )}
           {displayProfileMenu && (
-            <ProfileMenu onBlur={() => setDisplayProfileMenu(false)}>
+            <ProfileMenu>
               <Link to="/manager">
                 <FiClipboard size={24} />
                 Gerenciar
@@ -76,16 +77,24 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
               </button>
             </ProfileMenu>
           )}
+          {!isHome && (
+            <Link to="/">
+              <FiHome />
+              <span>Home</span>
+            </Link>
+          )}
+          {!user && !isSignIn && (
+            <Link to="/signin">
+              <FiLogIn />
+              <span>Login</span>
+            </Link>
+          )}
 
           <Social>
             <a href="/">
               <FiTwitter />
             </a>
-            <a
-              href="https://www.instagram.com/ju.foryou/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/">
               <FiInstagram />
             </a>
             <a href="/">
@@ -93,6 +102,48 @@ const Header: React.FC<HeaderProps> = ({ isHome, isSignIn, children }) => {
             </a>
           </Social>
         </Menu>
+
+        <MobileMenu>
+          <button type="button" onClick={handleToggleMobileMenu}>
+            <FiMenu />
+          </button>
+
+          {mobileMenu && (
+            <div id="mobile-menu">
+              {!isHome && (
+                <Link to="/">
+                  <FiHome />
+                  <span>Home</span>
+                </Link>
+              )}
+              {!user && !isSignIn ? (
+                <Link to="/signin">
+                  <FiLogIn />
+                  <span>Login</span>
+                </Link>
+              ) : (
+                <>
+                  <Link to="/manager">
+                    <FiClipboard />
+                    <span>Gerenciar</span>
+                  </Link>
+                  <Link to="/dashboard">
+                    <FiUser />
+                    <span>Meu Perfil</span>
+                  </Link>
+                  <Link to="/profile">
+                    <FiEdit />
+                    <span>Editar Perfil</span>
+                  </Link>
+                  <button onClick={signOut} type="button">
+                    <FiLogOut />
+                    <span>Sair</span>
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+        </MobileMenu>
       </HeaderContent>
       {children}
     </Container>

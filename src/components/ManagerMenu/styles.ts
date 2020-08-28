@@ -52,8 +52,7 @@ export const Container = styled.div`
       animation: ${appearFromAbove} 1s;
 
       a {
-        font-family: Pompiere;
-        font-size: 3.6rem;
+        font-size: 2.4rem;
         text-decoration: none;
         color: var(--dark-primary);
         background-color: transparent;
@@ -83,7 +82,7 @@ export const Container = styled.div`
     display: none;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     > div {
       display: none;
     }
@@ -103,8 +102,7 @@ export const Container = styled.div`
       align-items: center;
 
       a {
-        font-family: Pompiere;
-        font-size: 4.2rem;
+        font-size: 2.8rem;
         line-height: 5rem;
         text-decoration: none;
         color: var(--dark-primary);

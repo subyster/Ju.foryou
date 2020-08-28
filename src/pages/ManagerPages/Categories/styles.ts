@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  margin-top: 8rem;
+  margin-top: 6.4rem;
 
   width: 100%;
   margin-bottom: 0;
@@ -12,7 +12,11 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 1100px) {
+  @media (min-width: 700px) {
+    margin-top: 8rem;
+  }
+
+  @media (min-width: 1180px) {
     max-width: 80vw;
     margin: 11.6rem;
     flex-direction: row;
@@ -64,8 +68,7 @@ export const Page = styled.div`
 
     span {
       color: var(--dark1);
-      font-family: Pompiere;
-      font-size: 3.2rem;
+      font-size: 2.4rem;
       line-height: 3.8rem;
     }
 

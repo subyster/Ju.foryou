@@ -11,6 +11,7 @@ export const Container = styled.div`
     justify-content: center;
 
     margin-top: 4rem;
+    margin-bottom: 2.4rem;
     width: 32rem;
     padding: 1.6rem;
     background-color: var(--primary);
@@ -34,18 +35,22 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  margin-top: 12rem;
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--dark1);
 
   h1 {
-    font-family: Pompiere;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
+    font-weight: 700;
   }
   span {
     font-size: 1.2rem;
+  }
+
+  @media (min-width: 700px) {
+    margin-top: 12rem;
   }
 `;
 
@@ -61,7 +66,7 @@ export const Content = styled.div`
     align-items: unset;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     align-items: center;
   }
 `;
@@ -89,41 +94,9 @@ export const Photos = styled.div`
     margin-left: 6.4rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     margin-left: 9.2rem;
 
     flex-direction: row;
-  }
-`;
-
-export const MorePhotos = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 8rem;
-  height: 9.6rem;
-  background: var(--white);
-  box-shadow: 1px 2px 4px var(--primary);
-  border-radius: 2.4rem;
-
-  div {
-    border: 2px dashed var(--dark-primary);
-    border-radius: 2.4rem;
-    width: 6rem;
-    height: 7.2rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    strong {
-      font-size: 3.2rem;
-      color: var(--dark1);
-    }
-  }
-
-  @media (min-width: 1100px) {
-    margin-left: 5.6rem;
   }
 `;

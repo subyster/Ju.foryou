@@ -54,11 +54,10 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FiInstagram size={28} color="var(--dark-primary)" />
+                  <FiInstagram color="var(--dark-primary)" />
                 </a>
                 <Link to={`/item/${item.id}`}>
                   <FiEdit
-                    size={28}
                     color="var(--dark-primary)"
                     style={{ marginLeft: 16 }}
                   />
@@ -70,13 +69,9 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
             <Status>
               <span style={{ color: 'var(--green)' }}>Vendido!</span>
               <Buttons>
-                <FiCheckCircle size={28} color="var(--green)" />
+                <FiCheckCircle color="var(--green)" />
                 <Link to={`/item/${item.id}`}>
-                  <FiEdit
-                    size={28}
-                    color="var(--green)"
-                    style={{ marginLeft: 16 }}
-                  />
+                  <FiEdit color="var(--green)" style={{ marginLeft: 16 }} />
                 </Link>
               </Buttons>
             </Status>
@@ -85,13 +80,9 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, children }) => {
             <Status>
               <span style={{ color: 'var(--red)' }}>Pendente</span>
               <Buttons>
-                <FiAlertTriangle size={28} color="var(--red)" />
+                <FiAlertTriangle color="var(--red)" />
                 <Link to={`/item/${item.id}`}>
-                  <FiEdit
-                    size={28}
-                    color="var(--red)"
-                    style={{ marginLeft: 16 }}
-                  />
+                  <FiEdit color="var(--red)" style={{ marginLeft: 16 }} />
                 </Link>
               </Buttons>
             </Status>

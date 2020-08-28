@@ -80,7 +80,7 @@ const CustumerDetails: React.FC = () => {
             </section>
           </CustumerInfo>
 
-          <h1>Items:</h1>
+          <h1>Itens:</h1>
 
           <div id="scroll">
             {items.length === 0 && (

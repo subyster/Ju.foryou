@@ -11,6 +11,7 @@ export const Container = styled.div`
     justify-content: center;
 
     margin-top: 4rem;
+    margin-bottom: 2.4rem;
     width: 32rem;
     padding: 1.6rem;
     background-color: var(--primary);
@@ -31,7 +32,7 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   width: 100%;
-  margin-top: 12rem;
+  margin-top: 8rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -56,15 +57,14 @@ export const Title = styled.div`
   }
 
   h1 {
-    font-family: Pompiere;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
+    font-weight: 700;
     margin-bottom: 1.6rem;
   }
   span {
     display: flex;
     align-items: center;
-    font-family: Pompiere;
-    font-size: 2rem;
+    font-size: 1.6rem;
 
     img {
       height: 2.8rem;
@@ -97,6 +97,10 @@ export const Title = styled.div`
     }
   }
 
+  @media (min-width: 700px) {
+    margin-top: 12rem;
+  }
+
   @media (min-width: 800px) {
     padding: 0 12rem;
 
@@ -114,7 +118,7 @@ export const Title = styled.div`
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     padding: 0 20rem;
   }
 `;
@@ -126,7 +130,7 @@ export const Content = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     flex-direction: row;
     align-items: center;
   }
@@ -161,7 +165,7 @@ export const Inputs = styled.div`
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     margin-right: 8.4rem;
   }
 `;
@@ -174,11 +178,11 @@ export const Photos = styled.div`
   flex-direction: column;
 
   p {
-    color: var(--dark-primary);
+    color: var(--dark1);
     margin-bottom: 0.8rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     margin-top: 0;
   }
 `;

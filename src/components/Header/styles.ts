@@ -6,7 +6,6 @@ export const Container = styled.header`
   right: 0%;
   top: 0px;
   z-index: 5;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
   padding: 0 2rem;
 
@@ -14,13 +13,13 @@ export const Container = styled.header`
     padding: 0 8rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     padding: 0 12rem;
   }
 `;
 
 export const HeaderContent = styled.div`
-  height: 8rem;
+  height: 6.4rem;
 
   display: flex;
   align-items: center;
@@ -32,30 +31,36 @@ export const HeaderContent = styled.div`
   }
 
   h1 {
-    font-family: League Script;
-    font-size: 3.6rem;
+    font-size: 2.8rem;
+    font-weight: 500;
     color: var(--dark-primary);
+  }
+
+  @media (min-width: 700px) {
+    height: 8rem;
+
+    h1 {
+      font-size: 3.2rem;
+    }
   }
 `;
 
 export const Menu = styled.div`
-  display: flex;
-  align-items: center;
+  display: none;
 
   > a,
   > button {
     background-color: transparent;
     display: flex;
     align-items: center;
-    padding: 0 1.6rem;
+    padding: 0 2.4rem;
     text-decoration: none;
     color: var(--dark-primary);
     height: 8rem;
     transition: background-color 0.4s;
 
     span {
-      font-family: Pompiere;
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       display: none;
     }
 
@@ -69,7 +74,12 @@ export const Menu = styled.div`
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 700px) {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 1180px) {
     > a,
     > button {
       svg {
@@ -86,7 +96,6 @@ export const Menu = styled.div`
 export const ProfileMenu = styled.div`
   position: absolute;
   top: calc(100% + 1px);
-  left: -2rem;
   background-color: var(--background);
   box-shadow: 1px 2px 4px var(--dark-primary);
   width: 100vw;
@@ -101,7 +110,7 @@ export const ProfileMenu = styled.div`
     align-items: center;
 
     padding: 1.6rem;
-    font: 500 2.8rem Pompiere;
+    font: 500 2.4rem Roboto;
     color: var(--dark-primary);
     transition: background-color 0.4s;
 
@@ -147,7 +156,65 @@ export const Social = styled.div`
     margin-left: 2.4rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     margin-left: 8rem;
+  }
+`;
+
+export const MobileMenu = styled.div`
+  > button {
+    background-color: var(--secondary);
+    transition: opacity 0.3s;
+
+    svg {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 6.4rem;
+    right: -2rem;
+    left: -2rem;
+    box-shadow: 1px 2px 4px var(--dark-primary);
+
+    > a,
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      width: 100%;
+      padding: 2rem;
+      background-color: var(--light-primary);
+      transition: background-color 0.3s;
+
+      color: var(--dark1);
+
+      svg {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+
+      span {
+        font-size: 2.4rem;
+        font-weight: 500;
+
+        margin-left: 1.6rem;
+      }
+
+      &:hover {
+        background-color: var(--secondary);
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    display: none;
   }
 `;

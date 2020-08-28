@@ -179,7 +179,7 @@ const SignUp: React.FC = () => {
     <Container>
       <Header />
 
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form id="signup-form" ref={formRef} onSubmit={handleSubmit}>
         <FormTitle>Preencha suas informações para fazer o cadastro</FormTitle>
 
         <FormContent>

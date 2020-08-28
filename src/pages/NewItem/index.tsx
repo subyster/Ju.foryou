@@ -11,14 +11,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import api from '../../services/api';
 
-import {
-  Container,
-  Title,
-  Content,
-  Inputs,
-  Photos,
-  MorePhotos,
-} from './styles';
+import { Container, Title, Content, Inputs, Photos } from './styles';
 
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
@@ -162,11 +155,6 @@ const NewItem: React.FC = () => {
           </Inputs>
           <Photos>
             <Dropzone onFileUpload={setSelectedFile} />
-            <MorePhotos>
-              <div>
-                <strong>+</strong>
-              </div>
-            </MorePhotos>
           </Photos>
         </Content>
         <button type="submit" id="submitButton">

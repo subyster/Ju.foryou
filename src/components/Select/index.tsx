@@ -49,6 +49,7 @@ const Select: React.FC<SelectProps> = ({
       isErrored={!!error}
       isFocused={isFocused}
       style={{ width: boxWidth }}
+      className="select"
     >
       <Label>
         <h1>{title}</h1>

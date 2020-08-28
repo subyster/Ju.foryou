@@ -22,7 +22,7 @@ export const Label = styled.header`
 
 export const Title = styled.h1`
   font-size: 1.4rem;
-  color: var(--dark-primary);
+  color: var(--dark1);
 `;
 
 export const Error = styled(Tooltip)`

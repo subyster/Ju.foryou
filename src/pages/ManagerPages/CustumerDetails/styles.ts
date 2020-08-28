@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  margin-top: 8rem;
+  margin-top: 6.4rem;
 
   width: 100%;
   margin-bottom: 0;
@@ -12,7 +12,11 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 1100px) {
+  @media (min-width: 700px) {
+    margin-top: 8rem;
+  }
+
+  @media (min-width: 1180px) {
     max-width: 80vw;
     margin: 11.6rem;
     flex-direction: row;
@@ -25,14 +29,14 @@ export const Page = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2.4rem;
 
   button {
     display: flex;
     align-items: center;
 
     background-color: transparent;
-    font-family: Pompiere;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     margin-left: 6.4rem;
     margin-bottom: 2.4rem;
     color: var(--dark1);
@@ -49,8 +53,8 @@ export const Page = styled.div`
 
   h1 {
     margin: 1.6rem 6.4rem;
-    font-family: Pompiere;
-    font-size: 4.2rem;
+    font-size: 3.6rem;
+    font-weight: 500;
     color: var(--dark1);
   }
 
@@ -58,8 +62,7 @@ export const Page = styled.div`
     width: 100%;
 
     h2 {
-      font-family: Pompiere;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       color: var(--dark1);
     }
 
@@ -84,7 +87,7 @@ export const Page = styled.div`
       justify-content: space-between;
     }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1180px) {
       grid-column-gap: 12rem;
     }
   }
@@ -110,8 +113,7 @@ export const CustumerInfo = styled.div`
 
     span {
       color: var(--dark1);
-      font-family: Pompiere;
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       line-height: 3.8rem;
 
       white-space: nowrap;

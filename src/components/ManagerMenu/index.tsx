@@ -24,10 +24,10 @@ const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage }) => {
         </button>
         {mobileMenu && (
           <nav>
-            <Link to="/manager">Todos os items</Link>
-            <Link to="/manager/pendent-items">Items pendentes</Link>
-            <Link to="/manager/available-items">Items à venda</Link>
-            <Link to="/manager/sold-items">Items vendidos</Link>
+            <Link to="/manager">Todos os itens</Link>
+            <Link to="/manager/pendent-items">Itens pendentes</Link>
+            <Link to="/manager/available-items">Itens à venda</Link>
+            <Link to="/manager/sold-items">Itens vendidos</Link>
             <Link to="/manager/custumers">Clientes</Link>
             <Link to="/manager/categories">Categorias</Link>
           </nav>
@@ -35,10 +35,10 @@ const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage }) => {
       </div>
 
       <ul>
-        <Link to="/manager">Todos os items</Link>
-        <Link to="/manager/pendent-items">Items pendentes</Link>
-        <Link to="/manager/available-items">Items à venda</Link>
-        <Link to="/manager/sold-items">Items vendidos</Link>
+        <Link to="/manager">Todos os itens</Link>
+        <Link to="/manager/pendent-items">Itens pendentes</Link>
+        <Link to="/manager/available-items">Itens à venda</Link>
+        <Link to="/manager/sold-items">Itens vendidos</Link>
         <Link to="/manager/custumers">Clientes</Link>
         <Link to="/manager/categories">Categorias</Link>
       </ul>

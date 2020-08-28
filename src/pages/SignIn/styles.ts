@@ -1,12 +1,15 @@
 import styled, { keyframes } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div``;
+
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
 
-export const Content = styled.div``;
+  margin-top: 8rem;
+  margin-bottom: 6.4rem;
+`;
 
 const appearFromAbove = keyframes`
   from {
@@ -25,14 +28,14 @@ export const AnimationContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 14.4rem;
+  margin: 4rem auto;
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 40rem;
+    width: 30rem;
 
     button {
       width: 100%;
@@ -56,14 +59,17 @@ export const AnimationContainer = styled.div`
         background-color: var(--dark-primary);
       }
     }
+
+    @media (min-width: 500px) {
+      width: 40rem;
+    }
   }
 
   animation: ${appearFromAbove} 1s;
 `;
 
 export const FormTitle = styled.h1`
-  font-family: Pompiere;
-  font-size: 4.2rem;
+  font-size: 3.6rem;
   color: var(--primary);
 `;
 

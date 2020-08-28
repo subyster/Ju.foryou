@@ -13,7 +13,7 @@ export const Container = styled.div<ContainerProps>`
 
   h1 {
     font-size: 1.4rem;
-    color: var(--dark-primary);
+    color: var(--dark1);
   }
 
   select {

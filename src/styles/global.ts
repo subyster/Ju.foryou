@@ -3,12 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   :root {
     --white: #fff;
-    --background: #faf5f5;
-    --dark1: #500A0F;
-    --secondary: #FFC2DF;
-    --primary: #C6ADFF;
-    --dark-primary: #8B12C4;
-    --light-primary: #f1ebff;
+    --background: #F0F5F9;
+    --dark1: #031426;
+    --secondary: #7CA3CB;
+    --primary: #5085B9;
+    --dark-primary: #094074;
+    --light-primary: #C4D6E8;
     --red: #F50049;
     --light-red: #FFD6E2;
     --green: #127929;

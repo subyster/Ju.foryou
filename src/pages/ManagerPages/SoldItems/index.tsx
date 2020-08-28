@@ -32,6 +32,7 @@ const SoldItems: React.FC = () => {
       <Content>
         <ManagerMenu />
 
+        {items.length === 0 && <h1>Não há itens com este filtro.</h1>}
         <Page>
           {items.map((item: Item) => {
             return (

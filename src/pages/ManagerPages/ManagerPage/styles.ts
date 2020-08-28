@@ -3,21 +3,33 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  margin-top: 8rem;
+  margin: 6.4rem auto 4rem;
 
   width: 100%;
-  margin-bottom: 0;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 1100px) {
-    max-width: 80vw;
-    margin: 11.6rem;
+  > h1 {
+    margin-top: 4rem;
+    padding: 0 3.2rem;
+
+    font-weight: 500;
+    font-size: 3.2rem;
+    color: var(--dark-primary);
+    text-align: center;
+  }
+
+  @media (min-width: 700px) {
+    margin-top: 8rem;
+  }
+
+  @media (min-width: 1180px) {
+    margin-top: 11.6rem;
     flex-direction: row;
     align-items: unset;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 `;
 
@@ -25,6 +37,7 @@ export const Page = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 20vh;
 
   > div + div {
     margin-top: 6.4rem;
@@ -33,6 +46,7 @@ export const Page = styled.div`
   div {
     div:first-child {
       height: 5rem;
+      padding: 0 1.6rem;
       border-radius: 2.4rem 2.4rem 0 0;
       background-color: var(--light-primary);
       border-bottom: 0.8px solid var(--primary);
@@ -44,14 +58,18 @@ export const Page = styled.div`
       img {
         height: 3.2rem;
         width: 3.2rem;
+        object-fit: cover;
         border-radius: 50%;
         margin-right: 1.6rem;
       }
 
       span {
-        font-family: Pompiere;
-        font-size: 28px;
+        font-size: 2.4rem;
         color: var(--dark-primary);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }
@@ -61,6 +79,8 @@ export const Page = styled.div`
       margin-top: 0;
     }
 
+    min-height: 50vh;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 9.6rem;
@@ -68,7 +88,7 @@ export const Page = styled.div`
     justify-content: space-between;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1180px) {
     grid-column-gap: 12rem;
   }
 `;

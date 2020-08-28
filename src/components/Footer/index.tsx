@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 
-import { FiMail, FiInstagram } from 'react-icons/fi';
+import { FiMail, FiPhone } from 'react-icons/fi';
 import { Container, FooterContent, FooterText, Social } from './styles';
 
 const Footer: React.FC = () => {
@@ -13,18 +13,14 @@ const Footer: React.FC = () => {
         </FooterText>
         <Social>
           <div>
-            <FiMail size={32} color="var(--dark-primary)" />
-            <p>contato@juforyou.com.br</p>
+            <FiMail />
+            <p>contato@smanager.com.br</p>
           </div>
 
-          <a
-            href="https://www.instagram.com/ju.foryou/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiInstagram size={32} color="var(--dark-primary)" />
-            <p>@ju.foryou</p>
-          </a>
+          <div>
+            <FiPhone />
+            <p>(99) 99999-9999</p>
+          </div>
         </Social>
       </FooterContent>
     </Container>

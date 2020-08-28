@@ -215,13 +215,13 @@ const Dashboard: React.FC = () => {
         </SideContainer>
         <ItensContainer>
           <h1>Meus itens:</h1>
+          {items.length === 0 && (
+            <h2>
+              Você ainda não tem nenhum item anunciado com a gente, clique no
+              botão de anúncio e comece a desapegar
+            </h2>
+          )}
           <ItensScroll>
-            {items.length === 0 && (
-              <h2>
-                Você ainda não tem nenhum item anunciado com a gente, clique no
-                botão de anúncio e comece a desapegar
-              </h2>
-            )}
             {items.map((item: Item) => {
               return <ItemCard key={item.id} item={item} />;
             })}
