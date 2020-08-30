@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, HTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-interface ManagerMenuProps {
+interface ManagerMenuProps extends HTMLAttributes<HTMLDivElement> {
   activePage?: string;
 }
 
-const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage }) => {
+const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage, ...rest }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const toggleMobileMenu = useCallback(() => {
@@ -16,7 +16,7 @@ const ManagerMenu: React.FC<ManagerMenuProps> = ({ activePage }) => {
   }, [mobileMenu]);
 
   return (
-    <Container>
+    <Container {...rest}>
       <div>
         <button type="button" onClick={toggleMobileMenu}>
           <FiMenu />

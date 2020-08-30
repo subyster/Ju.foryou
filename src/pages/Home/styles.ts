@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div``;
 
@@ -10,6 +10,17 @@ export const Content = styled.div`
 
   @media (min-width: 700px) {
     margin-top: 8rem;
+  }
+`;
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -27,6 +38,8 @@ export const AboutUs = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
+
+    animation: ${appearFromLeft} 2s;
 
     h2 {
       font-size: 4.8rem;
@@ -76,6 +89,17 @@ export const AboutUs = styled.div`
         line-height: 3.2rem;
       }
     }
+  }
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -139,6 +163,13 @@ export const ToSignUp = styled.div`
       height: 7.2rem;
       font-size: 2.2rem;
       margin-left: 4.8rem;
+    }
+  }
+
+  &.signUpShow {
+    h1,
+    a {
+      animation: ${appearFromRight} 2s;
     }
   }
 `;

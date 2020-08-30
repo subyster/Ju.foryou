@@ -179,7 +179,7 @@ const Dashboard: React.FC = () => {
               </button>
             )}
             {areFiltersVisible && (
-              <Form ref={formRef} onSubmit={handleFilterItems}>
+              <Form id="filter-form" ref={formRef} onSubmit={handleFilterItems}>
                 <Select
                   name="category"
                   title="Filtrar por categoria"
@@ -213,6 +213,7 @@ const Dashboard: React.FC = () => {
             )}
           </Filters>
         </SideContainer>
+
         <ItensContainer>
           <h1>Meus itens:</h1>
           {items.length === 0 && (

@@ -68,7 +68,7 @@ export const Container = styled.div`
 
         &:hover {
           background-color: var(--dark-primary);
-          color: var(--primary);
+          color: var(--light-primary);
         }
 
         & + a {
@@ -119,7 +119,7 @@ export const Container = styled.div`
 
         &:hover {
           background-color: var(--dark-primary);
-          color: var(--primary);
+          color: var(--light-primary);
         }
 
         & + a {

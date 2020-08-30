@@ -23,7 +23,11 @@ const toastTypeVariations = {
 };
 
 export const Container = styled(animated.div)<ContainerProps>`
-  width: 36rem;
+  width: 30rem;
+
+  @media (min-width: 500px) {
+    width: 36rem;
+  }
 
   position: relative;
   padding: 1.6rem 3rem 1.6rem 1.6rem;
